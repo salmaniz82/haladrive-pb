@@ -1,0 +1,85 @@
+<header>
+
+        <nav class="pink darken-1">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">
+                    <img src="images/haladrive-logo.svg" width="150" height="120">
+                </a>
+
+                <ul id="nav-mobile" class="hide-on-med-and-down container">
+
+                    <li ui-sref-active="active"><a ui-sref="app.bookings()" lang="{{lang}}">{{gval.bookings[langIndex()]}}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="app.invoices()" lang="{{lang}}">{{gval.invoices[langIndex()]}}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="app.vehicles()" lang="{{lang}}">{{gval.vehicles[langIndex()]}}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="app.clients()" lang="{{lang}}">{{gval.clients[langIndex()]}}</a></li>
+
+                    <li ui-sref-active="active"><a ui-sref="app.features()" lang="{{lang}}">{{gval.features[langIndex()]}}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="app.finance()" lang="{{lang}}">{{gval.finance[langIndex()]}}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="app.insurance()" lang="{{lang}}">{{gval.insurance[langIndex()]}}</a></li>
+                    <li ui-sref-active="active" ng-if="isAdmin()"><a ui-sref="app.global()" lang="{{lang}}">{{gval.global[langIndex()]}}</a></li>
+
+                </ul>
+
+                <!--
+                <a  href="#" data-activates="userMenu" class="button-collapse"><i class="material-icons">menu</i></a>
+                -->
+
+                <a href="#" data-activates="mobile-demo" class="dropdown-button hide-on-large-only static-link"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down logo-ar-breath">
+
+                    <li><a href="#" class="static-link" ng-click="switchLang()">{{langLabel()}}</a></li>
+                    <li ng-show="vm.isLoggedIn()"><a class="dropdown-button" href="#!" data-activates="userMenu"> {{getAuthUsername()}} <i class="material-icons right">arrow_drop_down</i></a></li>
+                </ul>
+
+
+                <ul id="userMenu" class="dropdown-content">
+                    <li><a ui-sref="app.profile()" lang="{{lang}}">{{gval.profile[langIndex()]}}</a></li>
+                    <li><a ui-sref="app.settings()" lang="{{lang}}">{{gval.setting[langIndex()]}}</a></li>
+                    <li><a ui-sref="app.logout()" lang="{{lang}}">{{gval.logout[langIndex()]}}</a></li>
+                </ul>
+
+            </div>
+        </nav>
+
+
+    <!--
+
+
+      <ul id="mobile-demo" class="side-nav">
+          <li><a href="#" class="static-link" ng-click="switchLang()">{{langLabel()}}</a></li>
+          <li ui-sref-active="active"><a ui-sref="app.bookings()" lang="{{lang}}">{{gval.bookings[langIndex()]}}</a></li>
+          <li ui-sref-active="active"><a ui-sref="app.invoices()" lang="{{lang}}">{{gval.invoices[langIndex()]}}</a></li>
+          <li ui-sref-active="active"><a ui-sref="app.vehicles()" lang="{{lang}}">{{gval.vehicles[langIndex()]}}</a></li>
+          <li ui-sref-active="active"><a ui-sref="app.clients()" lang="{{lang}}">{{gval.clients[langIndex()]}}</a></li>
+          <li ui-sref-active="active"><a ui-sref="app.features()" lang="{{lang}}">{{gval.features[langIndex()]}}</a></li>
+          <li ui-sref-active="active"><a ui-sref="app.finance()" lang="{{lang}}">{{gval.finance[langIndex()]}}</a></li>
+          <li ui-sref-active="active"><a ui-sref="app.insurance()" lang="{{lang}}">{{gval.insurance[langIndex()]}}</a></li>
+          <li ui-sref-active="active" ng-if="isAdmin()"><a ui-sref="app.global()" lang="{{lang}}">{{gval.global[langIndex()]}}</a></li>
+      </ul>
+      -->
+
+
+    <ul id="mobile-demo" class="dropdown-content">
+
+        <li><a href="#" class="static-link" ng-click="switchLang()">{{langLabel()}}</a></li>
+
+        <li ui-sref-active="active"><a ui-sref="app.bookings()" lang="{{lang}}">{{gval.bookings[langIndex()]}}</a></li>
+        <li ui-sref-active="active"><a ui-sref="app.invoices()" lang="{{lang}}">{{gval.invoices[langIndex()]}}</a></li>
+        <li ui-sref-active="active"><a ui-sref="app.vehicles()" lang="{{lang}}">{{gval.vehicles[langIndex()]}}</a></li>
+        <li ui-sref-active="active"><a ui-sref="app.clients()" lang="{{lang}}">{{gval.clients[langIndex()]}}</a></li>
+        <li ui-sref-active="active"><a ui-sref="app.features()" lang="{{lang}}">{{gval.features[langIndex()]}}</a></li>
+        <li ui-sref-active="active"><a ui-sref="app.finance()" lang="{{lang}}">{{gval.finance[langIndex()]}}</a></li>
+        <li ui-sref-active="active"><a ui-sref="app.insurance()" lang="{{lang}}">{{gval.insurance[langIndex()]}}</a></li>
+        <li ui-sref-active="active" ng-if="isAdmin()"><a ui-sref="app.global()" lang="{{lang}}">{{gval.global[langIndex()]}}</a></li>
+
+    </ul>
+
+        </div>
+
+</header>
+
+
+<div ui-view></div>
+
+
+

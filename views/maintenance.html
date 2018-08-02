@@ -1,0 +1,168 @@
+<div class="container top-spacer">
+
+
+
+<div class="row">
+
+    <div class="col s6">
+        <h4 class="pink-text text-lighten-2" lang="{{lang}}">{{ gval.maintenance[langIndex()]}}</h4>
+    </div>
+    <div class="col s6">
+        <a class="btn btn pink darken-1 right" ui-sref="app.insurance()" lang="{{lang}}">{{gval.back[langIndex()]}}</a>
+    </div>
+
+    <div class="col s6">&nbsp;</div>
+
+    <div class="col s6">
+            <a href="#" class="btn btn pink darken-1 right static-link" ng-click="vm.editmode = 'newstuff'; vm.addSubmitted = false" lang="{{lang}}">{{gval.addnew[langIndex()]}}</a>
+    </div>
+    
+</div>
+
+
+
+    <div class="row">
+        <div class="col s6">
+
+            <p>Vehicle Info : {{vm.dataList.v.makerEN + ' ' + vm.dataList.v.modelEN + ' ' + vm.dataList.v.year}}</p>
+            <p>Body : {{vm.dataList.v.bodystyleEN}}</p>
+            <p>Series : {{vm.dataList.v.series}}</p>
+            <p>Plate No : {{vm.dataList.v.vin}}</p>
+            <p>Mileage : {{vm.dataList.v.mileage}}</p>
+            <p>Price : {{vm.dataList.v.price}}</p>
+
+        </div>
+
+        <div class="col s6">
+            <p><img ng-src="{{baseUrl}}/uploads/{{vm.dataList.v.photo}}" alt=""></p>
+        </div>
+    </div>
+
+
+    <form ng-submit="vm.addNew()" ng-if="vm.editmode == 'newstuff'">
+
+
+    <div class="row">
+
+            <div class="col s6 input-field">
+                <input id="desc" type="text" class="validate" ng-model="vm.nd.description">
+                <label for="desc">Description</label>
+            </div>
+
+        <div class="col s6 input-field">
+            &nbsp;
+        </div>
+
+
+    </div>
+
+        <div class="row">
+
+            <div class="col s6 input-field">
+                <input id="cost" type="text" class="validate" ng-model="vm.nd.cost">
+                <label for="cost">Cost</label>
+            </div>
+            <div class="col s6 input-field">
+                <input id="miles" type="text" class="validate" ng-model="vm.nd.miles">
+                <label for="miles">Miles</label>
+            </div>
+        </div>
+
+
+    <div class="row">
+        <div class="col s6">
+            <button type="submit" class="waves-effect waves-light btn pink darken-1" lang="{{lang}}" ng-disabled="vm.addSubmitted">{{gval.save[langIndex()]}}</button>
+        </div>
+
+        <div class="col s6">
+            <button class="waves-effect waves-light btn red darken-1" lang="{{lang}}" ng-click="vm.cancelMode()">{{gval.cancel[langIndex()]}}</button>
+        </div>
+    </div>
+
+    </form>
+
+    <form ng-submit="vm.update()" ng-if="vm.editmode == 'showedit'">
+
+        <div class="row">
+
+            <div class="col s6 input-field">
+                <input id="desc" type="text" class="validate" ng-model="vm.nd.description">
+                <label for="desc">Description</label>
+            </div>
+
+            <div class="col s6 input-field">
+                &nbsp;
+            </div>
+
+
+        </div>
+
+        <div class="row">
+
+            <div class="col s6 input-field">
+                <input id="cost" type="text" class="validate" ng-model="vm.nd.cost">
+                <label for="cost">Cost</label>
+            </div>
+            <div class="col s6 input-field">
+                <input id="miles" type="text" class="validate" ng-model="vm.nd.cost">
+                <label for="miles">Miles</label>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col s6">
+                <button type="submit" class="waves-effect waves-light btn pink darken-1" lang="{{lang}}">{{gval.save[langIndex()]}}</button>
+            </div>
+
+            <div class="col s6">
+                <button class="waves-effect waves-light btn red darken-1" lang="{{lang}}" ng-click="vm.cancelMode()">{{gval.cancel[langIndex()]}}</button>
+            </div>
+        </div>
+
+    </form>
+
+    <div class="row" ng-if="vm.editmode == 'showall'">
+        <div class="s12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Dated</th>
+
+                    <th>Description</th>
+                    <th>Miles</th>
+                    <th>Cost</th>
+                    <td>&nbsp;</td>
+                </tr>
+                </thead>
+                <tbody>
+
+
+                <tr ng-repeat="data in vm.dataList.m">
+                    <td>{{data.id}}</td>
+                    <td><small>{{data.dated}}</small></td>
+                    <td>{{data.description}}</td>
+                    <td>{{data.miles}}</td>
+                    <td>{{data.cost}}</td>
+                    <td>{{data.registration}}</td>
+                    <td>{{data.expiration}}</td>
+                    <td>
+                        <a class='dropdown-button btn btn pink darken-1' href='#' data-activates="{{data.id}}" lang="{{lang}}">{{gval.options[langIndex()]}}<i class="material-icons right">arrow_drop_down</i></a>
+                        <ul id="{{data.id}}" class='dropdown-content'>
+                            <li><a ng-click="vm.edit($index, data.id)">Edit</a></li>
+                            <li><a ng-click="vm.remove($index, data.id)" lang="{{lang}}">{{gval.remove[langIndex()]}}</a></li>
+                        </ul>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <p ng-if="vm.editmode == null">No maintenance added for this vehicle yet</p>
+
+
+</div>

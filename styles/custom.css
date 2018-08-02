@@ -1,0 +1,303 @@
+
+.CarBrowser__filters-list-item-link {
+	position: relative;
+}
+
+.CarBrowser__filters-list-item-selected .CarBrowser__filters-list-item-link-text::after{
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAYAAACbU/80AAAAAXNSR0IArs4c6QAAAq9JREFUSA3FlUloU1EUhvteamJUsjCGQECIgm6CWbno22RwaGtRQrWKIAhKwYXgouBCcOfOlcWVw0ZBsKW13SgUkYxCQUSEIigKWSQEjUXFoa3N4HeSNH3PxhDS5nnh5M7/d+459750df3nYjGbHwqFrnq93i3pdPq9sFUzHRC4oijXsOlwONxnqgPBYPCKwGsHni+Xyx+krdQGOloBv6yq6nWBAM4VCoVQKpV6J/1u+elkIdQj6Ffg1B+xAytw4XY0AsAvwRgVEOUTJw8nk8k31W71t2MR4MJdBFGBE/bPtA/+DRcXOuIA8Ato3xQAZb5YLAp8rto1/m74dwD4MIhb3HiFk38plUqHgL82Yld7G/od4LafQ/p2Df6V+nAikXi1ilvbqjvg9/u3Mt32pQwEAmd5ancFjs43Tt8bjUZfrkUaRypAwraN4afYXCwWk/yVjMua99h/Bu59VqmAv1P3ojPbfFd1diUCNxDowYYRE6GW7wbrT7PvHnsE/oOc97cKFxcqII/HM2uxWPoRcmN+/ix8TqdzKpfLNY0EOT/J+geYvKafODBAzp+LcKulnnNN07bbbLYZxPbLZsQeUw1xmsVGYuT8ODkfq8F/sWaAnMcbrW02Vg91JpNZ4NTjOBFgw06E91JrjE0QiWW9CF+4CPPj2CYcXSDsx+LxeEy/ptV23QHZAGjJ4XCM2e12DfFd2G6r1Rp0u92T2Wx2SdaQ86OMT2BW4ItYhLA/k7l2Sj0F+s1ANtN/BOSIjAN5wXe8j3vSQ9inGLJh4lCEsM9Qt10aOiBqPp/P6nK5HuLEYE39LbUXE/hvPq+DnPwJ7XUVQwr0Svl8vshrmMSBPYzvw3Zg3URjGRsCLpd03eWfEdApq1y6O/TPC5z6FC9jWjdvSlPhzY/iyAlTaGZC/gDm1PZaKhKfawAAAABJRU5ErkJggg==);
+	position: absolute;
+    top: 50%;
+    right: 10px;
+    background-size: 12px auto;
+    background-position: 50% 50%;
+    border: 0;
+    height: 12px;
+    min-width: 16px;
+    width: 16px;
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    order: 1;
+    margin-top: -6px;
+}
+/* disabled start*/
+
+
+
+
+.CarProfileV2__root .CarProfilePage__body .CarProfilePageLeader__root {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    height: auto;
+    margin: 50px 0;
+    min-height: 50vw;
+    padding: 0;
+    position: relative;
+    top: 0px;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.CarProfileV2__root .CarProfilePageLeader__root .CarProfileCarousel__root {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    height: 50vw;
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+
+@media (max-width: 992px) {
+.CarProfileV2__root .CarProfilePage__body .CarProfilePageLeader__root {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    }
+}
+
+
+
+
+/* disabled start*/
+
+
+#mobile-filter {display: none;}
+#desktop-filter {display: none}
+
+
+@media screen and (max-width: 768px)
+{
+    #mobile-filter {display: flex;}
+}
+
+@media screen and (min-width: 769px)
+{
+    #desktop-filter {display: flex;}    
+}
+
+
+
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 3px;
+    background: #737373;
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 30px; /* Set a specific slider handle width */
+    height: 20px; /* Slider handle height */
+    background: rgba(255,255,255,0.85); /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 10px;
+    border: 1px solid #bebebe;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+
+/*
+
+
+background-color: #fff;
+
+-webkit-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+font-weight: 300;
+height: 20px;
+top: -8px;
+width: 30px;
+
+
+
+*/
+
+
+.SiteChromeHeader__shift-logo {
+    background-image: url(http://haladrive.com/images/haladrive-logo.svg) !important;
+}
+
+#desk-sign {display: none;}
+
+.SiteChromeHeader__open #desk-sign {display: inline-block;}
+
+
+
+
+
+.CarProfileCarousel__owl-item-content {
+    /*
+    width: 100vh;
+    */
+}
+
+
+    ul.SiteChromeHeader__navigation.SiteChromeHeader__hidden {
+        /*
+        display: none;
+        */
+    }
+    .SiteChromeHeader__open ul.SiteChromeHeader__navigation.SiteChromeHeader__hidden {display: block;}
+
+
+@media screen and (max-width: 992px) {
+    
+    a.CarBrowserCarCard__root.CarBrowserCarCard__large.CarBrowserCard__root.CarBrowserCard__large {width: 100%;}
+    
+
+    ul.SiteChromeHeader__navigation.SiteChromeHeader__hidden {
+        
+        display: none;
+        
+    }
+
+    
+
+    .Carousel__arrow-icon {height: 30px; width: 30px;}
+
+    
+
+    .Carousel__arrow {
+        width: 80px;    
+    }
+}
+
+
+
+
+.SiteChromeHeader__inverted-colors .SiteChromeHeader__background.SiteChromeHeader__detached {
+    background-color: #424242;
+}
+
+.SiteChromeHeader__inverted-colors .SiteChromeHeader__shift-logo {
+    background-image: url(http://haladrive.com/images/haladrive-logo.svg) !important;
+    max-width: initial;
+    height: 30px;
+    width: 99px;
+    background-size: contain;
+}
+
+
+
+/*
+.SiteChromeHeader__background:not(.SiteChromeHeader__detached) .SiteChromeHeader__navigation-text {color: #424242 !important;}
+*/
+
+
+.show-on-modal-open {display: none;}
+body.Modal__is-open .show-on-modal-open {display: block;}
+
+
+.show-on-modal-open > chosen-container {display: none;}
+
+body.Modal__is-open .show-on-modal-open > chosen-container {display: block;}
+
+
+.shift-logo {
+    background: url(http://haladrive.com/images/haladrive-logo.svg) no-repeat top left !important;
+    width: 220px;
+    height: 65px;
+}
+
+/*
+    transparent url(../images/interface/arrow_black_down%402x.kjb8Drre.png) no-repeat right center
+    icon to be added in the filter drop list
+
+*/
+
+
+.CarBrowserFilterSelectorList__root .CarBrowser__filters-section-header {
+    position: relative;
+}
+
+.CarBrowserFilterSelectorList__root .CarBrowser__filters-section-header::after {
+    position: absolute;
+    content: "";
+    background: transparent url(../images/interface/arrow_black_down%402x.kjb8Drre.png) no-repeat right center;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 18px;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+    cursor: pointer;
+    -webkit-transition: inherit;
+    transition: inherit;
+    transition: all .3s ease-out;
+}
+
+
+.CarBrowserFilterSelectorList__root .CarBrowser__filters-section-header.open::after {
+    transform: rotate(180deg);
+}
+
+
+#daily-slide-container, #monthly-slide-container {
+    display: none;
+}
+
+#daily-slide-container.active, #monthly-slide-container.active {
+    display: block;
+}
+
+.CarBrowser__has-modal-sidebar .CarBrowser__sidebar-filters-title .CarSearchForm__root {
+ 
+    padding: 0px !important;
+    
+}
+
+select.chosen-with-icon + .chosen-container.chosen-container-multi .chosen-choices {
+    border: none !important;
+}
+
+
+@media (max-width: 992px) 
+{
+
+    .SiteChromeHeader__shift-logo, .SiteChromeHeader__detached .SiteChromeHeader__shift-logo {
+    height: 29.55px;
+    width: 100px;
+
+}
+
+}
+

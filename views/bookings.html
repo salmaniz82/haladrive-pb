@@ -1,0 +1,99 @@
+<div class="container top-spacer">
+
+    <div class="row">
+        
+
+    <div class="col s6">
+        <h4 class="pink-text text-lighten-2" lang="{{lang}}">{{gval.bookings[langIndex()]}}</h4>
+    </div>    
+
+    <div class="col s6">
+        
+    </div>
+
+</div>
+
+<table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cleint</th>
+                    <th>Vehicle</th>
+                    <th>PlateNO</th>
+                    <th>Start - End : Datetime</th>
+
+                    <th>Days / Hours </th>
+                    <th>Expire IN Days</th>
+                    <th>Init Hours</th>
+
+                    <th>Status</th>
+                    <td>&nbsp;</td>
+                </tr>
+                </thead>
+                <tbody>
+
+                
+                <tr ng-repeat="data in vm.dataList.b">
+                    <td>{{data.id}}</td>
+                    <td><a href="#?id33">{{data.clentNameEN}}</a></td>
+                    <td><a ui-sref="app.vdetails({id: data.vehicle_id})">{{data.makerEN + ' ' + data.modelEN}}</a></td>
+                    <td>{{data.plateno}}</td>
+                    <td>{{data.startdatetime}}<br>{{data.enddatetime}}</td>
+
+                    <td>{{data.forDays}} / {{data.forHours}}</td>
+                    <td>{{data.exInDays}}</td>
+                    <td>{{data.initHours}}</td>
+                    <td> <span class="status-label" ng-class="{'cancelled': data.status == 'cancelled' , 'confirmed': data.status == 'confirmed', 'pending': data.status == 'pending', 'initiated': data.status == 'initiated', 'completed': data.status == 'completed'}">
+                        {{data.status}} </span></td>
+
+
+                    <td>
+                        <a class='dropdown-button btn btn pink darken-1' href='#' data-activates="{{data.id}}" lang="{{lang}}">{{gval.options[langIndex()]}}<i class="material-icons right">arrow_drop_down</i></a>
+                        <ul id="{{data.id}}" class='dropdown-content'>
+                            <li><a ng-click="vm.updateBookingStatus(data.id, 'confirmed')">Confirm</a></li>
+                            <li><a ng-click="vm.updateBookingStatus(data.id, 'initiated')">Initiate</a></li>
+                            <li><a lang="{{lang}}" class="modal-trigger static-link" href="#modal{{data.id}}">Complete</a></li>
+                            <li><a ng-click="vm.updateBookingStatus(data.id, 'cancelled')">Cancel</a></li>
+                            <li><a ng-click="vm.remove($index, data.id)" lang="{{lang}}">{{gval.remove[langIndex()]}}</a></li>
+                        </ul>
+
+                        <div id="modal{{data.id}}" class="modal">
+                            <div class="modal-content">
+                                <p class="pink-text text-lighten-2">End Booking</p>
+
+                                <p>{{data.makerEN + ' ' + data.modelEN }}</p>
+                                <p>{{'PlateNo : ' + data.plateno}}</p>
+
+                                <form ng-submit="vm.endBooking(data.id, 'completed')" name="endbooking" novalidate="true">
+
+                                    <div class="row">
+
+                                        <div class="col s4 input-field">
+                                            <input id="mileage" type="number" class="validate" ng-model="vm.rdata.endMileage">
+                                            <label for="mileage">Mileage</label>
+                                        </div>
+
+                                        <div class="col s4 input-field">
+                                            <button type="submit" class="btn pink darken-1 pull-left">Proceed</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col s4 input-field">
+                                            <a class="modal-action modal-close static-link">Cancel</a>
+                                        </div>
+                                    </div> <!-- modal contents -->
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+
+
+            </div>

@@ -1,0 +1,52 @@
+<div class="login">
+
+    <div class="container">
+
+        <div class="row">
+            
+            <h4 class="pink-text text-lighten-2 col s12">Login</h4>  
+            
+            <div class="col s8" ng-if="vm.wrongCreds" style="background-color: red; color: #fff">
+                <p>Invalid Credentials</p>
+            </div>
+
+        </div>
+
+
+            <form ng-submit="vm.login()">
+        <div class="row">
+            <div class="col s8 input-field">
+            
+                <input id="email" type="email" class="validate" ng-model="vm.creds.email" value="you@me.com">
+                <label for="email" class="pink-text text-darken-1">Email</label>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col s8 input-field">
+                <input id="password" type="password" class="validate" ng-model="vm.creds.password" value="132132365465">
+                <label for="password" class="pink-text text-darken-1">Password</label>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col s8 input-field">
+                
+
+                    <button type="submit" class="btn pink darken-1">Login</button>
+
+                    </form>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+

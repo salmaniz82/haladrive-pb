@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html ng-app="haladrive" ng-controller="appCtrl as vm" class="js pointerevents no-touchevents cssanimations csstransforms supports csstransforms3d csstransitions">
+<head>
+    <title>Haladrive : Application </title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="theme-color" content="D81B60"/>
+	<meta name="description" content="Car Rental Booking Managment System">
+
+
+
+
+	<style type="text/css">
+		.preloader {
+			position: fixed;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background: #fff;
+			z-index: 99999;
+		}
+
+		.preloader .preloader-gif {
+			display: block;
+			width: 80px;
+			height: 80px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -40px 0 0 -40px;
+			background: url('images/preloader.gif') no-repeat;
+		}
+	</style>
+
+
+
+
+	<script type="text/javascript">
+		window.addEventListener("load", function(event) {
+    		console.log('load fired in js');
+		});
+
+		window.addEventListener("DOMContentLoaded", function(event) {
+    		console.log('content loaded fired in js');
+		});
+
+
+	</script>
+
+
+	<link type="text/css" rel="stylesheet" id="langStyles" ng-href="css/{{lang}}.css" media="screen,projection"/>
+	<link rel="icon" href="images/01ecfc96.apple-touch-icon-precomposed.png">
+	<link type="text/css" rel="stylesheet" href="css/common.css?ver=2"  media="screen,projection"/>
+
+	<link type="text/css" rel="stylesheet" href="css/angular-notify-material.css"  media="screen,projection"/>
+
+    <link rel="stylesheet" href="styles/D17A76BCF10B81C58.css">
+    <link rel="stylesheet" href="styles/app.b359ab6b5c86bd37231c705abe49c723.css">
+
+    <!--
+
+      <link rel="stylesheet" href="styles/owl.carousel.css">
+
+    -->
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="styles/custom.css">
+    <link rel="stylesheet" type="text/css" href="styles/theme.css">
+
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+	<!--
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	-->
+
+	<script src="js/libs/jquery.min.js"></script>
+	<script src="js/libs/jquery.easing.js"></script>
+
+
+
+
+	<script>if (window.module) module = window.module;</script>
+
+	<!-- Angular Libraries  -->
+	<script type="text/javascript" src="js/libs/angular.min.js"></script>
+	<script type="text/javascript" src="js/libs/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="js/libs/chosen.js"></script>
+	<script type="text/javascript" src="js/libs/angular-chosen.min.js"></script>
+
+
+	<!-- Load External Modules  -->
+	<script type="text/javascript" src="app/modules/loadingModule.js"></script>
+	<script type="text/javascript" src="app/modules/angular-notify.js"></script>
+	<!-- Angular APP  -->
+	<script type="text/javascript" src="app/app.js"></script>
+	<script type="text/javascript" src="app/routes.js"></script>
+
+	<!-- Angular Directives  -->
+	<script type="text/javascript" src="app/directives/static-link.js"></script>
+	<script type="text/javascript" src="app/directives/scroll-control.js"></script>
+
+	<script type="text/javascript" src="app/directives/chosen-directive.js"></script>
+
+	<script type="text/javascript" src="app/directives/fileModel.js"></script>
+	<script type="text/javascript" src="app/directives/modal-trigger.js"></script>
+	<script type="text/javascript" src="app/directives/date-picker.js"></script>
+	<script type="text/javascript" src="app/directives/time-picker.js"></script>
+
+	<!-- Angular Services  -->
+
+	<script type="text/javascript" src="app/services/logService.js"></script>
+	<script type="text/javascript" src="app/services/auth.js"></script>
+	<script type="text/javascript" src="app/services/langSer.js"></script>
+	<script type="text/javascript" src="app/services/mutipartForm.js"></script>
+
+	<!-- Angualar Factory -->
+
+	<script type="text/javascript" src="app/factory/authInterceptor.js"></script>
+
+	<!-- Filters -->
+	<script type="text/javascript" src="app/filters/filters.js"></script>
+
+	<!-- Angular Controllers -->
+	<script type="text/javascript" src="app/controllers/appCtrl.js"></script>
+	<script type="text/javascript" src="app/controllers/exampleCtrl.js"></script>
+	<script type="text/javascript" src="app/controllers/authAppCtrl.js"></script>
+	<script type="text/javascript" src="app/controllers/loginCtrl.js"></script>
+	<script type="text/javascript" src="app/controllers/logoutCtrl.js"></script>
+	<script type="text/javascript" src="app/controllers/homeCtrl.js"></script>
+	<script type="text/javascript" src="app/controllers/notFoundCtrl.js"></script>
+	<script type="text/javascript" src="app/controllers/dashboardCtrl.js"></script>
+
+    <!-- booking controller -->
+	<script type="text/javascript" src="app/controllers/bookingCtrl.js"></script>
+
+
+    <style type="text/css">
+        select.chosen-with-icon + .chosen-container.chosen-container-multi .chosen-choices  {
+            padding-left    : 35px;
+
+            background-color: #fff;
+            border-color: #d9d9d9 #ccc #b3b3b3;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            color: #333;
+            cursor: default;
+            display: table;
+            border-spacing: 0;
+            border-collapse: separate;
+            height: 46px;
+            outline: none;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            box-shadow: none !important;
+            background-image: none !important;
+
+        }
+
+        select.chosen-with-icon + .chosen-container.chosen-container-multi .chosen-choices:before {
+
+            background: url(images/ConsumerWeb/features/CarSearchForm/img/magnifyingglass.ctfpjkLO.png) 50% 50% no-repeat;
+            background-size: 100%;
+            content: '';
+            display: inline-block;
+            height: 100%;
+            left: 10px;
+            top: 0px;
+            position: absolute;
+            vertical-align: middle;
+            width: 20px;
+        }
+
+        .chosen-container-multi .chosen-choices li.search-choice{
+            background: #fff;
+            border: 1px solid #ebebeb;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            color: #424242;
+            display: inline-block;
+            line-height: 1.4;
+            margin: 5px 10px 5px 0;
+
+        }
+
+        .chosen-container-multi .chosen-choices li.search-choice span
+        {
+            border-top-right-radius: 2px;
+            cursor: default;
+            padding: 2px 5px;
+        }
+
+
+        .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
+            background-image: url('images/chosen-sprite.2nR_8SAw.png') !important;
+            background-position: 10px 1px !important;
+
+        }
+
+        .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+            margin: 10px 0 !important;
+            font-family: 'Gotham Narrow SSm A', 'Gotham Narrow SSm B', Helvetica Neue, Helvetica, Arial !important;
+        }
+
+        select.chosen-with-icon + .chosen-container .chosen-results li.active-result.highlighted {
+            background-color: #e14e4e !important;
+            background-image: none !important;
+        }
+    </style>
+
+
+
+
+</head>
+<body scroll>
+
+<main class="page-wrap">
+
+	<div class="preloader">
+		<span class="preloader-gif"></span>
+	</div>
+
+	<div notifybar style="position:fixed;top:0;right:0; z-index: 9999"></div>
+
+	<div loading-status-message style="position:fixed; top: 50%; left: 50%; margin: -40px 0 0 -40px; display:none;">
+			<img src="images/preloader.gif">
+	</div>
+
+<div ui-view> </div>
+
+
+</main>
+
+
+<script type="text/javascript" src="js/custom.js"></script>
+
+<script type="text/javascript">
+    window.addEventListener('load', function() {
+    var preloaderElement = document.getElementsByClassName('preloader')[0];
+    preloaderElement.style.display = 'none';
+
+    });
+</script>
+
+
+
+</body>
+</html>
+
+</body>
+</html>

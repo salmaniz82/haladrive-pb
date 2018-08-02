@@ -1,0 +1,71 @@
+<div class="container top-spacer">
+
+<div class="row">
+
+    <div class="col s10">
+        <h4 class="pink-text text-lighten-2" lang="{{lang}}">{{gval.clients[langIndex()]}}</h4>
+    </div>
+    <div class="col s2">
+        <a class="btn btn pink darken-1 right" ui-sref="app.cliadd()" lang="{{lang}}">{{gval.addnew[langIndex()]}}</a>
+    </div>
+
+</div>
+
+    
+
+<table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th lang="ar">اسم</th>
+                    <th>Civil ID</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Status</th>
+                    <th>&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr ng-repeat="cl in vm.clients">
+                    <td>{{cl.id}}</td>
+                    <td>{{cl.nameEN}}</td>
+                    <td lang="ar">{{cl.nameAR}}</td>
+                    <td>{{cl.civilno}}</td>
+                    <td>{{cl.email}}</td>
+                    <td>{{cl.mobile}}</td>
+                    <td>
+                        <div class="switch">
+                            <label>
+                                <input type="checkbox" ng-model="cl.status" ng-change="vm.updateStatus(cl.status, cl.id)"
+                                       ng-true-value="'1'" ng-false-value="'0'"
+                                       ng-checked="cl.status == '1'">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </td>
+
+                    <td>
+
+
+                        <a class='dropdown-button btn btn pink darken-1' href='#' data-activates="{{cl.id}}" lang="{{lang}}">{{gval.options[langIndex()]}}<i class="material-icons right">arrow_drop_down</i></a>
+
+                                 <ul id="{{cl.id}}" class='dropdown-content'>
+                                    
+                                    <li><a href="#!" lang="{{lang}}">{{gval.details[langIndex()]}}</a></li>
+                                    <li><a ui-sref="app.cliedit({id: cl.id})" lang="{{lang}}">{{gval.edit[langIndex()]}}</a></li>
+                                    <li><a ng-click="vm.removeClients($index, cl.id)" lang="{{lang}}">{{gval.remove[langIndex()]}}</a></li>
+
+                                </ul>
+
+                    </td>
+                    
+
+                </tr>
+
+                
+                </tbody>
+            </table>
+
+            </div>
