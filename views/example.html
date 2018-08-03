@@ -84,6 +84,8 @@
                             <div>
                                 <h1><span class="CarListingsLeader__headline-text">Simplified car rental</span></h1>
                                 <p>
+
+                                    
                                     <nobr>Great cars. Better prices.</nobr>
                                     <!-- react-text: 75 -->
                                     <!-- /react-text -->
@@ -137,7 +139,7 @@
 
         <div class="Row__root CarBrowser__sidebar-filters-result">
             <div class="Column__root" style="flex: 1 1 0%;">
-                758 matches :  <p class="closeModelBtn show-on-modal-open">X Close</p><!-- /react-text --></div>
+                {{vm.cars.records}} matches :  <p class="closeModelBtn show-on-modal-open">X Close</p><!-- /react-text --></div>
         </div></div><div class="ScrollContainer__root CarBrowser__filters-scroller"><div><div class="CarBrowser__filters-scroller-content">
             <div class="CarBrowser__filters-section">
                 <h4 class="CarBrowser__filters-section-header CarBrowser__filters-toggles">
@@ -184,9 +186,9 @@
 <div class="CarBrowser__filters-selectors">
 
     <div class="CarBrowserFilterSelectorList__root CarBrowser__filters-section" ng-repeat="filters in apiGlobals">
-        <h4 class="CarBrowser__filters-section-header" ng-click="filterHeader(filters.en)" ng-class="[isOpenList(filters.en)]">{{filters.en}}</h4>
+        <h4 class="CarBrowser__filters-section-header" ng-class="[isOpenList(filters.en)]" ng-click="filterHeader(filters.en)">{{filters.en}}</h4>
         <ul class="CarBrowser__filters-list" ng-class="[filterHeaderClass(filters.en)]">
-            <li class="CarBrowser__filters-list-item" ng-class="[isFilterItemActive(item.titleEN)]" ng-repeat="item in filters.list" ng-click="filterListSelc(item.titleEN)">
+            <li class="CarBrowser__filters-list-item" ng-repeat="item in filters.list" ng-click="filterListSelc(item)" ng-class="[isFilterItemActive(item)]">
                 <a class="CarBrowser__filters-list-item-link CarBrowser__filters-list-item-link-available" href="#">
                 <span class="CarBrowser__filters-list-item-link-text">{{item.titleEN}}</span></a>
             </li>
@@ -328,7 +330,7 @@
     </div>
 
     <div class="CarBrowser__list-title CarBrowser__all-cars-title">
-        <div class="CarBrowser__section-title CarBrowser__list-title-body">Matched: {{vm.cars.records}} Cars</div>
+        <div class="CarBrowser__section-title CarBrowser__list-title-body">Matched: {{vm.cars.records}} Cars : {{appliedFilterItem}}</div>
     </div>
     <div>
         <div class="CarBrowser__list">
@@ -343,7 +345,7 @@
                     </div>
                     <div class="CarBrowserCarCard__photo-wrapper">
                         <img ng-alt="{{car.makerEN+' '+car.modelEN+'-'+car.year}}" class="CarBrowserCarCard__photo" itemprop="image"
-                             ng-src="{{'https://api.haladrive.com/uploads'+'/'+car.photo}}"
+                             ng-src="{{'http://api.haladrive.local/uploads'+'/'+car.photo}}"
                         ></div>
                     <div class="CarBrowserCarCard__body">
                         <div class="CarBrowserCarCard__row">
