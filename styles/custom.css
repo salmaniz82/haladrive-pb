@@ -266,7 +266,7 @@ body.Modal__is-open .show-on-modal-open > chosen-container {display: block;}
 }
 
 
-.CarBrowserFilterSelectorList__root .CarBrowser__filters-section-header.open::after {
+.CarBrowserFilterSelectorList__root .ng-binding.CarBrowser__filters-section-header.CarBrowser__filters-section-header-open::after {
     transform: rotate(180deg);
 }
 
