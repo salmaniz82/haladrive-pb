@@ -139,7 +139,7 @@
 
         <div class="Row__root CarBrowser__sidebar-filters-result">
             <div class="Column__root" style="flex: 1 1 0%;">
-                {{vm.cars.records}} matches :  <p class="closeModelBtn show-on-modal-open">X Close</p><!-- /react-text --></div>
+                {{vm.cars.records}} matches :  <p class="closeModelBtn show-on-modal-open">X Close</p></div>
         </div></div><div class="ScrollContainer__root CarBrowser__filters-scroller"><div><div class="CarBrowser__filters-scroller-content">
             <div class="CarBrowser__filters-section">
                 <h4 class="CarBrowser__filters-section-header CarBrowser__filters-toggles">
@@ -148,7 +148,7 @@
                     <div class="MakeItRain__root CarBrowser__slider-value-label">
                         <span class="NoWrap__root">
                             <span class="MakeItRain__dollar">KD</span>
-                            <span class="MakeItRain__price" id="priceSlideValue">{{vm.priceRange}}</span>
+                            <span class="MakeItRain__price" id="priceSlideValue">{{priceRange}}</span>
                             <span class="MakeItRain__suffix">&nbsp; <!-- +k removed --> </span>
                         </span>
                     </div>
@@ -157,14 +157,14 @@
 
 <div class="slidecontainer active" id="daily-slide-container">
     <!-- daily slider -->
-  <input type="range" min="2500" max="10000" ng-model="vm.priceRange" class="slider" id="dailySlider" data-price="d">
+  <input type="range" min="100" max="5000" ng-model="priceRange" class="slider" id="dailySlider" data-price="d" ng-value="100" ng-mouseup="updatePrice(priceRange)">
 
 </div>
 
 
 <div class="slidecontainer" id="monthly-slide-container">
     <!-- monthly slider -->
-  <input type="range" min="3000" max="6000" class="slider" id="monthlySlider" data-price="m">
+  <input type="range" min="100" max="6000" class="slider" id="monthlySlider" data-price="m">
 
 </div>
 
@@ -176,26 +176,23 @@
 <div class="CarBrowser__filters-section">
 
     <div class="CarBrowser__filters-section-header CarBrowser__slider-label">Max Mileage</div>
-    <div class="CarBrowser__slider-value-label" id="mileageSlideOutput">{{vm.mileRange}}</div>
+    <div class="CarBrowser__slider-value-label" id="mileageSlideOutput">{{mileRange}}</div>
     <div class="slidecontainer">
-        <input type="range" min="10" max="10000" ng-model="vm.mileRange" class="slider" id="mileageSlider">
+        <input type="range" min="0" max="10000" ng-model="mileRange" class="slider" id="mileageSlider" ng-value="100" ng-mouseup="updateMile(mileRange)">
     </div>
 </div>
 
 
 <div class="CarBrowser__filters-selectors">
-
     <div class="CarBrowserFilterSelectorList__root CarBrowser__filters-section" ng-repeat="filters in apiGlobals">
         <h4 class="CarBrowser__filters-section-header" ng-class="[isOpenList(filters.en)]" ng-click="filterHeader(filters.en)">{{filters.en}}</h4>
         <ul class="CarBrowser__filters-list" ng-class="[filterHeaderClass(filters.en)]">
             <li class="CarBrowser__filters-list-item" ng-repeat="item in filters.list" ng-click="filterListSelc(item)" ng-class="[isFilterItemActive(item)]">
                 <a class="CarBrowser__filters-list-item-link CarBrowser__filters-list-item-link-available" href="#">
                 <span class="CarBrowser__filters-list-item-link-text">{{item.titleEN}}</span></a>
-            </li>
-            
+            </li>           
         </ul>
     </div>
-
 </div>
 </div>
 </div>
@@ -345,7 +342,7 @@
                     </div>
                     <div class="CarBrowserCarCard__photo-wrapper">
                         <img ng-alt="{{car.makerEN+' '+car.modelEN+'-'+car.year}}" class="CarBrowserCarCard__photo" itemprop="image"
-                             ng-src="{{'http://api.haladrive.local/uploads'+'/'+car.photo}}"
+                             ng-src="{{'https://api.haladrive.com/uploads'+'/'+car.photo}}"
                         ></div>
                     <div class="CarBrowserCarCard__body">
                         <div class="CarBrowserCarCard__row">

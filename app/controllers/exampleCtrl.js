@@ -1,24 +1,26 @@
 (function() {
 
-    angular.module('haladrive').controller('exampleCtrl', function(API_URL, $http, $scope){
+    angular.module('haladrive').controller('exampleCtrl', function(API_URL, $http, $scope, $timeout){
 
 
         var vm = this;
         vm.cars = false;
+
         vm.queryString = '?all';
 
-        vm.targetUrl = API_URL+'/api/vehicles/q/'+vm.queryString;
+        $scope.mileRange = 10;
+        $scope.priceRange = 10;
+
+        $scope.changeHistory = 1;
 
 
-        vm.mileRange = 500;
-        vm.priceRange = 800;
 
+        vm.targetUrl = API_URL+'/api/vehicles/b/'+vm.queryString;
+        
 
 
         $scope.filterHeaderItem = [];
         $scope.appliedFilterItem = [];
-
-
 
 
         $scope.filterHeader = function(filterHeaderSelc)
@@ -109,6 +111,8 @@
                     var temp = {};
                     temp[headerSlug] = [filterEntry];
                     $scope.appliedFilterItem.push(temp);
+
+
                     
                 }
 
@@ -127,6 +131,8 @@
                         $scope.appliedFilterItem[headerPosKey][headerSlug].push(filterEntry);
                     }
                 }
+
+                $scope.changeHistory++;
 
                 vm.prepareQueryString($scope.appliedFilterItem);
 
@@ -206,8 +212,60 @@
 
         	});
 
-	        
+
+        $scope.updatePrice = function(val)
+        {
+
+            $scope.priceRange = val;
+            $scope.changeHistory++;
+        };
+
+        $scope.updateMile = function(val)
+        {
+
+            $scope.mileRange = val;
+            $scope.changeHistory++;
+
+        };
+
+
+        $scope.applyFilterResult = function()
+        {
+            
+
+            var filterUrl = API_URL+'/api/vehicles/b/'+vm.queryString + '&minprice='+$scope.priceRange+'&minmileage='+$scope.mileRange;
+
+            $http.get(filterUrl).then(
+
+            function(response) {        
+
+                vm.cars = response.data;
+                
+            }, function(response) {
+
+
+                
+
+                vm.cars = response.data; 
+
+
+               
+
+            });
+        };
+
+
+        $scope.$watch('changeHistory', function (newValue, oldValue, scope) {
+
+                
+            if(newValue != oldValue)
+            {
+
+               $timeout($scope.applyFilterResult, 10);
+               
+            }
+            
+        }, true);
 
     });
-
 })();
