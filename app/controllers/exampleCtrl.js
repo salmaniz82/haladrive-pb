@@ -15,49 +15,25 @@
 
 
 
-        $scope.appliedFilter = [ 
-
-            {'all': true}
-
-            
-        ];
-
+        $scope.filterHeaderItem = [];
         $scope.appliedFilterItem = [];
+
+
 
 
         $scope.filterHeader = function(filterHeaderSelc)
         {
-            
 
-            var result = null;
-            var keyPointer = null;
-           for(var key in $scope.appliedFilter)
-           {
-                if($scope.appliedFilter[key].hasOwnProperty(filterHeaderSelc))
-                {
-                    result = true;
+            var idx = $scope.filterHeaderItem.indexOf(filterHeaderSelc);
 
-                    keyPointer = key;
-                }
-                else {                   
-                    result = false;
-                }
+            if(idx == -1)
+            {
+                $scope.filterHeaderItem.push(filterHeaderSelc);
+            }
 
-
-           }
-
-                if(!result)
-                {
-                    var temp = {};
-                    temp[filterHeaderSelc] = null;
-                    $scope.appliedFilter.push(temp);
-                }
-
-                else {
-                    $scope.appliedFilter.splice(keyPointer, 1);
-                }
-
-            
+            else {
+                $scope.filterHeaderItem.splice(idx, 1);
+            }
 
         };
 
@@ -67,54 +43,26 @@
         $scope.filterHeaderClass = function(fh)
         {
            
-           // 
-           var result = null;
-           for(var key in $scope.appliedFilter)
+           if($scope.filterHeaderItem.indexOf(fh) == -1)
            {
-                if($scope.appliedFilter[key].hasOwnProperty(fh))
-                {
-                    result = true;
-                    keyPointer = key;
-                }
-                else {                   
-                    result = false;
-                }
+                return '';
            }
-                if(!result)
-                {
-                      return '';
-                }
-                else {
-                    return 'CarBrowser__filters-list-open';                   
-                }
-
+           else {
+                return 'CarBrowser__filters-list-open';
+           }
+           
         }
 
         $scope.isOpenList = function(fh)
         {
-            // 
 
-            var result = null;
-           for(var key in $scope.appliedFilter)
+            if($scope.filterHeaderItem.indexOf(fh) == -1)
            {
-                if($scope.appliedFilter[key].hasOwnProperty(fh))
-                {
-                    result = true;
-                    keyPointer = key;
-                }
-                else {                   
-                    result = false;
-                }
+                return '';
            }
-                if(!result)
-                {
-                      return '';
-                }
-                else {
-                    return 'CarBrowser__filters-section-header-open open';
-                }
-
-           
+           else {
+                return 'CarBrowser__filters-section-header-open open';
+           }
 
         }
 
@@ -148,7 +96,7 @@
 
                     if($scope.appliedFilterItem[headerPosKey][headerSlug] == undefined)
                     {
-                        console.log($scope.appliedFilterItem[headerPosKey][headerSlug]);
+                        
                         headerMatched = false;
                     }
                 
@@ -169,11 +117,18 @@
                     {
                         var idx = $scope.appliedFilterItem[headerPosKey][headerSlug].indexOf(filterEntry);
                         $scope.appliedFilterItem[headerPosKey][headerSlug].splice(idx, 1);
+
+                        if($scope.appliedFilterItem[headerPosKey][headerSlug].length == 0)
+                        {
+                              $scope.appliedFilterItem.splice(headerPosKey, 1);
+                        }
                     }
                     else {
                         $scope.appliedFilterItem[headerPosKey][headerSlug].push(filterEntry);
                     }
                 }
+
+                vm.prepareQueryString($scope.appliedFilterItem);
 
         }
 
@@ -206,13 +161,36 @@
                     return 'CarBrowser__filters-list-item-selected';
                 }
 
-
-
            }
 
-            
-
         }
+
+
+        vm.prepareQueryString = function(filterObj)
+            {
+                
+                var string = '';
+
+                for(var key in filterObj)
+                {
+                    for(var propName in filterObj[key])
+                    {   
+
+                        var ItemLenghts = filterObj[key][propName].length;
+
+                        for(i=0; i <=ItemLenghts-1; i++)
+                        {
+                        
+                            string += '&'+propName+'[]='+ filterObj[key][propName][i];
+                        }
+                    }
+                }
+
+                vm.queryString = '?'+string;
+
+                return string;
+
+            };
 
 
 
