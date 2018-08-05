@@ -31,8 +31,8 @@
                         <li class="SiteChromeHeader__navigation-link SiteChromeHeader__financing"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Financing</span></a></li>
                         <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">How it works</span></a></li>
                         <li class="SiteChromeHeader__more-li">
-                            <span class="SiteChromeHeader__navigation-text SiteChromeHeader__more-link" id="more-nav-link">More</span>
-                            <ul class="SiteChromeHeader__more-nav SiteChromeHeader__hidden">
+                            <span class="SiteChromeHeader__navigation-text SiteChromeHeader__more-link" id="more-nav-link" ng-click="moreLinkEnabled = !moreLinkEnabled">More</span>
+                            <ul class="SiteChromeHeader__more-nav" ng-class="{'SiteChromeHeader__hidden': !moreLinkEnabled}">
                                 <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">About Haladrive</span></a></li>
                                 <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Get the Mobile App</span></a></li>
                                 <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Car Loan Calculator</span></a></li>
@@ -45,7 +45,9 @@
                         </li>
                         <li class="SiteChromeHeader__sign-in SiteChromeHeader__navigation-link" id="desk-sign"><a class="SiteChromeHeader__navigation-text" href="#">Sign in</a></li>
                     </ul>
-                    <a class="SiteChromeHeader__mobile-nav-toggle" href="#"><span class="SiteChromeHeader__nav-toggle-span"></span></a>
+                    <a class="SiteChromeHeader__mobile-nav-toggle" ng-class="{'active': isMenuActive}" href="#" ng-click="isMenuActive != isMenuActive">
+                        <span class="SiteChromeHeader__nav-toggle-span"></span>
+                    </a>
 
                     <ul class="SiteChromeHeader__navigation" style="display: none;">
                         <li class="SiteChromeHeader__sign-in SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-text" href="#">Sign in</a></li>
@@ -235,6 +237,8 @@
           </select>
 
 
+
+
                         <!-- search field ends -->
 
 
@@ -342,7 +346,7 @@
                     </div>
                     <div class="CarBrowserCarCard__photo-wrapper">
                         <img ng-alt="{{car.makerEN+' '+car.modelEN+'-'+car.year}}" class="CarBrowserCarCard__photo" itemprop="image"
-                             ng-src="{{'https://api.haladrive.com/uploads'+'/'+car.photo}}"
+                             ng-src="{{baseUrl+'/uploads'+'/'+car.photo}}"
                         ></div>
                     <div class="CarBrowserCarCard__body">
                         <div class="CarBrowserCarCard__row">

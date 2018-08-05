@@ -1,6 +1,6 @@
 (function() {
 
-    angular.module('haladrive').controller('exampleCtrl', function(API_URL, $http, $scope, $timeout){
+    angular.module('haladrive').controller('exampleCtrl', function(API_URL, $http, $scope, $timeout, $rootScope){
 
 
         var vm = this;

@@ -1,6 +1,6 @@
 (function(){
 	angular.module('haladrive')
-	.controller('appCtrl', function($scope, auth, langSer, API_URL, $http){
+	.controller('appCtrl', function($scope, auth, langSer, API_URL, $http, $rootScope){
 		var vm = this;
 
 		$scope.baseUrl = API_URL;
@@ -9,9 +9,9 @@
 
         $scope.lang = langSer.init();
 
+        
 
         $scope.apiGlobals = false;
-
 
 		$scope.gval = {
 

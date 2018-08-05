@@ -56,6 +56,7 @@ $(window).scroll(function() {
 
 });
 
+
 $(function(){
     /* open menu on mobile device*/
     $('a#mobile-nav-toggle').on('click', function(e) {
