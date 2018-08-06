@@ -135,6 +135,7 @@ $(document).mouseup(function (e)
         $(".SiteChromeHeader__more-nav").addClass("SiteChromeHeader__hidden");
 
     }
+
 });
 
 function resizeContent() {
@@ -198,6 +199,7 @@ $(document).on('click', '.CarBrowser__filters-list-open .CarBrowser__filters-lis
 $(document).on('click', '.CarBrowserCarCard__favorite-heart', function(e) {
     
     $(this).toggleClass('CarFavoriteHeart__is-favorite');
+    
     e.preventDefault();
 
 });

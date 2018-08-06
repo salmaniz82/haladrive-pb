@@ -217,7 +217,7 @@
 
 
 </head>
-<body ng-class="{'Modal__is-open': mobileFilterActive == 'open'}" scroll>
+<body ng-class="[bodyFilterModelClass()]" scroll>
 
 <main class="page-wrap">
 
@@ -227,8 +227,8 @@
 
 	<div notifybar style="position:fixed;top:0;right:0; z-index: 9999"></div>
 
-	<div loading-status-message style="position:fixed; top: 50%; left: 50%; margin: -40px 0 0 -40px; display:none;">
-			<img src="images/preloader.gif">
+	<div loading-status-message style="position:fixed; top: 50%; left: 50%; margin: -40px 0 0 -40px; z-index: 100000; display:none;">
+			<img src="images/spinner.svg">
 	</div>
 
 <div ui-view> </div>

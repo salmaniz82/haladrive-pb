@@ -13,6 +13,8 @@
 
         $scope.changeHistory = 1;
 
+        
+
 
 
         vm.targetUrl = API_URL+'/api/vehicles/b/'+vm.queryString;

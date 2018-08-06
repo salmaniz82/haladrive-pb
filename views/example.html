@@ -124,8 +124,8 @@
 
 
                 <div class="CarBrowser__container"><span>
-    <div class="CarBrowser__root CarBrowser__has-sidebar">
-        <div class="CarBrowser__sidebar-wrapper CarBrowser__sidebar-wrapper-top">
+    <div class="CarBrowser__root CarBrowser__has-sidebar" ng-class="{'CarBrowser__modal-sidebar-open': filterModelState}">
+        <div class="CarBrowser__sidebar-wrapper" ng-class="{'CarBrowser__sidebar-wrapper-top': !filterModelState}">
 
 
     <!-- sidebar inner starts-->
@@ -141,7 +141,7 @@
 
         <div class="Row__root CarBrowser__sidebar-filters-result">
             <div class="Column__root" style="flex: 1 1 0%;">
-                {{vm.cars.records}} matches :  <p class="closeModelBtn show-on-modal-open">X Close</p></div>
+                {{vm.cars.records}} matches :  <p class="closeModelBtn show-on-modal-open" ng-click="modelFilterToggle()">X Close</p></div>
         </div></div><div class="ScrollContainer__root CarBrowser__filters-scroller"><div><div class="CarBrowser__filters-scroller-content">
             <div class="CarBrowser__filters-section">
                 <h4 class="CarBrowser__filters-section-header CarBrowser__filters-toggles">
@@ -159,7 +159,7 @@
 
 <div class="slidecontainer active" id="daily-slide-container">
     <!-- daily slider -->
-  <input type="range" min="100" max="5000" ng-model="priceRange" class="slider" id="dailySlider" data-price="d" ng-value="100" ng-mouseup="updatePrice(priceRange)">
+  <input type="range" min="100" max="5000" ng-model="priceRange" class="slider" id="dailySlider" data-price="d" ng-value="100" ng-change="updatePrice(priceRange)">
 
 </div>
 
@@ -180,7 +180,7 @@
     <div class="CarBrowser__filters-section-header CarBrowser__slider-label">Max Mileage</div>
     <div class="CarBrowser__slider-value-label" id="mileageSlideOutput">{{mileRange}}</div>
     <div class="slidecontainer">
-        <input type="range" min="0" max="10000" ng-model="mileRange" class="slider" id="mileageSlider" ng-value="100" ng-mouseup="updateMile(mileRange)">
+        <input type="range" min="0" max="10000" ng-model="mileRange" class="slider" id="mileageSlider" ng-value="100" ng-change="updateMile(mileRange)">
     </div>
 </div>
 
@@ -273,8 +273,8 @@
 
 
             <div class="CarBrowser__list-title-body CarBrowser__content-with-sidebar" id="mobile-filter">
-                <div class="CarBrowser__show-filters-btn">Filter</div>
-                <div class="CarBrowser__list-title-results">752 cars</div>
+                <div class="CarBrowser__show-filters-btn" ng-click="modelFilterToggle()">Filter</div>
+                <div class="CarBrowser__list-title-results">{{vm.cars.records}} Cars</div>
                 <div class="CarBrowser__list-title-get-notified">
                     <div class="CarBrowserGetNotifiedButton__root">
                         <button class="CarBrowserGetNotifiedButton__btn CarBrowserGetNotifiedButton__icon-only Button__root Button__color-red Button__size-xsmall Button__weight-normal Button__inverted-colors" type="button"><span class="Button__content"></span></button>
@@ -284,12 +284,17 @@
                     <span class="black shift-select-container">
 
 
-                        <select readonly="" data-placeholder="Sort By" id="filter-select-2">
+                        <select 
+                        chosen placeholder-text-single="'Sort By'" disable-search="true"  
+                          id="filter-select-1" style="width:120px">
+                            
                             <option value=""></option>
                             <option value="latest">Latest</option>
-                            <option value="lowest-mileage">Mileage</option>
-                            <option value="cheapest">Price $ - $$</option>
-                            <option value="highest-price">Price $$ - $</option>
+                            <option value="minMileage">< Mileage</option>
+                            <option value="maxMileage">> Mileage</option>
+                            <option value="minPrice">< Price</option>
+                            <option value="MaxPrice">> Price</option>
+                            
                         </select>
 
 
@@ -308,20 +313,25 @@
 
         <div class="CarBrowser__list-title-fixed-mobile CarBrowser__list-title-fixed-mobile-animated CarBrowser__list-title" id="mobile-filter">
             <div class="CarBrowser__list-title-body CarBrowser__content-with-sidebar">
-                <div class="CarBrowser__show-filters-btn">Filter</div>
-                <div class="CarBrowser__list-title-results">751 cars</div>
+                <div class="CarBrowser__show-filters-btn" ng-click="modelFilterToggle()">Filter</div>
+                <div class="CarBrowser__list-title-results">{{vm.cars.records}} cars</div>
                 <div class="CarBrowser__list-title-get-notified">
                     <div class="CarBrowserGetNotifiedButton__root"><button class="CarBrowserGetNotifiedButton__btn CarBrowserGetNotifiedButton__icon-only Button__root Button__color-red Button__size-xsmall Button__weight-normal Button__inverted-colors" type="button"><span class="Button__content"></span></button>
                     </div></div>
                     <div class="CarBrowserSort__root CarBrowser__list-title-sort">
                         <span class="black shift-select-container">
 
-                        <select readonly="" data-placeholder="Sort By" class="select-no-search"  id="filter-fixed3">
+                        <select 
+                        chosen placeholder-text-single="'Sort By'" disable-search="true"  
+                          id="filter-select-1" style="width:120px">
+                            
                             <option value=""></option>
                             <option value="latest">Latest</option>
-                            <option value="lowest-mileage">Mileage</option>
-                            <option value="cheapest">Price $ - $$</option>
-                            <option value="highest-price">Price $$ - $</option>
+                            <option value="minMileage">< Mileage</option>
+                            <option value="maxMileage">> Mileage</option>
+                            <option value="minPrice">< Price</option>
+                            <option value="MaxPrice">> Price</option>
+                            
                         </select>
 
                 </span></div></div>

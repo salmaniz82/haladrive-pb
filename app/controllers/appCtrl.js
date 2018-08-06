@@ -9,6 +9,42 @@
 
         $scope.lang = langSer.init();
 
+        $scope.filterModelState = false;
+
+        $scope.bodyFilterModelClass = function()
+        {
+            
+            if($scope.filterModelState)
+            {
+                return 'Modal__is-open';
+            }
+            else {
+                return  'default';
+            }
+
+        };
+
+        $scope.modelFilterToggle = function()
+        {
+
+            $scope.filterModelState = !$scope.filterModelState;
+
+            if($scope.filterModelState)
+            {
+                $('.Modal__root').addClass('Modal__is-open');
+                $('.Modal__content').addClass('Modal__content-full-page');    
+            }
+            else {
+
+                $('.Modal__root').removeClass('Modal__is-open');
+                $('.Modal__content').removeClass('Modal__content-full-page');
+            }
+            
+
+            $scope.bodyFilterModelClass();
+        
+        };
+
         
 
         $scope.apiGlobals = false;
