@@ -124,11 +124,16 @@
 
 
                 <div class="CarBrowser__container"><span>
-    <div class="CarBrowser__root CarBrowser__has-sidebar" ng-class="{'CarBrowser__modal-sidebar-open': filterModelState}">
-        <div class="CarBrowser__sidebar-wrapper" ng-class="{'CarBrowser__sidebar-wrapper-top': !filterModelState}">
+    <div class="CarBrowser__root CarBrowser__has-modal-sidebar" ng-class="{'CarBrowser__modal-sidebar-open': filterModelState}">
+        <div class="CarBrowser__sidebar-wrapper Modal__layout-feature Modal__root" ng-class="{'CarBrowser__sidebar-wrapper-top': !filterModelState}">
 
 
     <!-- sidebar inner starts-->
+
+
+    <div class="Modal__content">
+        
+    
 
     <div class="CarBrowser__sidebar-inner-wrapper">
     <div class="CarBrowser__sidebar">
@@ -200,7 +205,9 @@
 </div>
 </div>
 </div>
-</div>
+</div><!-- CarBrowser__sidebar-inner-wrapper -->
+
+</div><!-- Modal__content -->
 
 
             <!-- ends -->

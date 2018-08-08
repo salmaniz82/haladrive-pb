@@ -81,7 +81,7 @@ app.directive("scroll", function ($window) {
                         $height = $(window).height();
                         // $wd = window.innerWidth;
 
-                        $wd = document.documentElement.clientWidth;
+                        $wd = window.innerWidth;
 
 
                         console.log('$height' + $height);
@@ -93,6 +93,9 @@ app.directive("scroll", function ($window) {
                         if($wd <= 768)
                         {
                             console.log('do mobile adjustments');
+
+                            $('.CarBrowserCarCard__root').removeClass('CarBrowserCarCard__large CarBrowserCard__root CarBrowserCard__large')
+                            $('.CarBrowserCarCard__root').addClass('CarBrowserCard__root CarBrowserCard__small');
 
                             
                             var ngSidebar = document.querySelector('.CarBrowser__sidebar-wrapper');
@@ -120,19 +123,29 @@ app.directive("scroll", function ($window) {
                                 console.log('if not already then wrap');
                                 $('.CarBrowser__sidebar-inner-wrapper').wrap('<div class="Modal__content" />');
                             }           
+
+                            
                             
                         }
                         else {
 
-                            $('.CarBrowser__sidebar-wrapper').removeClass('Modal__layout-feature Modal__root');
-                            $('.CarBrowser__root').addClass('CarBrowser__has-sidebar');
-                            $('.CarBrowser__root').removeClass('CarBrowser__has-modal-sidebar');
-
                             if ($(".Modal__content")[0]){
                                 console.log('unwrap if had it');
-                                $('.CarBrowser__sidebar-inner-wrapper').unwrap('<div class="Modal__content" />');
+
+                               // $('.CarBrowser__sidebar-inner-wrapper').unwrap('<div class="Modal__content" />');
+
+                               $('.CarBrowser__sidebar-inner-wrapper').unwrap('.Modal__content');
                             }
- 
+
+                            $('.CarBrowser__sidebar-wrapper').removeClass('Modal__layout-feature Modal__root');
+                            $('.CarBrowser__root').removeClass('CarBrowser__has-modal-sidebar');
+                            $('.CarBrowser__root').addClass('CarBrowser__has-sidebar');
+
+
+
+                            $('.CarBrowserCarCard__root').removeClass('CarBrowserCard__root CarBrowserCard__small');
+                            $('.CarBrowserCarCard__root').addClass('CarBrowserCarCard__large CarBrowserCard__root CarBrowserCard__large');
+                            
                             
                         }
 
