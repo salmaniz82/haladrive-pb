@@ -131,7 +131,7 @@
     <!-- sidebar inner starts-->
 
     <div class="CarBrowser__sidebar-inner-wrapper">
-    <div class="CarBrowser__sidebar" id="vueSide">
+    <div class="CarBrowser__sidebar">
     <div class="CarBrowser__sidebar-filters-title">
         <div class="Row__root show-on-modal-open">
             <div class="CarSearchForm__root CarBrowserListTitle__list-title-search">
@@ -347,8 +347,11 @@
         <div class="CarBrowser__list">
             <div>
 
-
-                <a ng-repeat="car in vm.cars.v" class="CarBrowserCarCard__root CarBrowserCarCard__large CarBrowserCard__root CarBrowserCard__large">
+                <!-- 
+                desktop: CarBrowserCarCard__root CarBrowserCarCard__large CarBrowserCard__root CarBrowserCard__large 
+                small Mobile : CarBrowserCarCard__root CarBrowserCard__root CarBrowserCard__small
+                -->
+                <a ng-repeat="car in vm.cars.v" class="CarBrowserCarCard__root CarBrowserCard__root CarBrowserCard__small">
                     <div class="CarBrowserCarCard__favorite-heart CarFavoriteHeart__root">
                         <div class="CarFavoriteHeart__icon-container">
                             <div class="CarFavoriteHeart__icon"></div>

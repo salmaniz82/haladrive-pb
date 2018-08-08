@@ -179,9 +179,7 @@ width: 30px;
 
 @media screen and (max-width: 992px) {
     
-    a.CarBrowserCarCard__root.CarBrowserCarCard__large.CarBrowserCard__root.CarBrowserCard__large {width: 100%;}
     
-
     ul.SiteChromeHeader__navigation.SiteChromeHeader__hidden {
         
         display: none;
