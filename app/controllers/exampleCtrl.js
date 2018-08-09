@@ -13,16 +13,30 @@
 
         $scope.changeHistory = 1;
 
-        
-
-
-
         vm.targetUrl = API_URL+'/api/vehicles/b/'+vm.queryString;
-        
-
 
         $scope.filterHeaderItem = [];
         $scope.appliedFilterItem = [];
+
+
+
+        $scope.haveFilters = function() 
+        {
+           
+           return ($scope.appliedFilterItem.length > 0) ? true : false;
+
+        };
+
+        $scope.clearFilters = function()
+        {
+
+            $scope.appliedFilterItem.splice(0, $scope.appliedFilterItem.length);
+            vm.queryString = '?all';
+
+            $scope.changeHistory++;
+        };
+
+
 
 
         $scope.filterHeader = function(filterHeaderSelc)
@@ -38,6 +52,7 @@
             else {
                 $scope.filterHeaderItem.splice(idx, 1);
             }
+
 
         };
 

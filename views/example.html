@@ -140,13 +140,18 @@
     <div class="CarBrowser__sidebar-filters-title">
         <div class="Row__root show-on-modal-open">
             <div class="CarSearchForm__root CarBrowserListTitle__list-title-search">
-                
+                <!-- search field will be placed here -->
             </div>
         </div>
 
         <div class="Row__root CarBrowser__sidebar-filters-result">
-            <div class="Column__root" style="flex: 1 1 0%;">
-                {{vm.cars.records}} matches :  <p class="closeModelBtn show-on-modal-open" ng-click="modelFilterToggle()">X Close</p></div>
+            <div class="Column__root" style="flex: 2 1 0%;">
+                {{vm.cars.records}} matches :<a ng-if="haveFilters()"href="#" class="CarBrowser__sidebar-filters-clear" ng-click="clearFilters()">Clear Filters</a>
+            </div>
+            <div class="Column__root show-on-modal-open" style="flex: 1 1 0%;" >
+                <button class="Button__root Button__color-red Button__size-xsmall Button__weight-normal Button__inverted-colors" type="button" ng-click="modelFilterToggle()">
+                    <span class="Button__content">X Close</span></button>
+            </div>
         </div></div><div class="ScrollContainer__root CarBrowser__filters-scroller"><div><div class="CarBrowser__filters-scroller-content">
             <div class="CarBrowser__filters-section">
                 <h4 class="CarBrowser__filters-section-header CarBrowser__filters-toggles">
