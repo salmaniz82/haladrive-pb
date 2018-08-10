@@ -1,7 +1,7 @@
 <div id="page-node">
-    <div data-reactroot="" id="cars-page">
+    <div id="cars-page">
         <div class="SiteChromeHeader__root">
-            <!-- react-empty: 3 -->
+            
 
             <!-- header -->
 
@@ -119,7 +119,7 @@
 
 
 
-    <div id="cars">
+    
 
 
 
@@ -235,7 +235,7 @@
                         <!-- search field starts -->
 
 
-            <select chosen multiple data-placeholder="Type search Term" data-full-width="true" style="width: 100%"  class="select-with-search chosen-with-icon" tabindex="1">
+            <select chosen multiple data-placeholder="Type search Term" style="width: 80%"  class="select-with-search chosen-with-icon" tabindex="1">
             <option value=""></option>
             <option value="United States">United States</option>
             <option value="United Kingdom">United Kingdom</option>
@@ -363,7 +363,7 @@
                 desktop: CarBrowserCarCard__root CarBrowserCarCard__large CarBrowserCard__root CarBrowserCard__large 
                 small Mobile : CarBrowserCarCard__root CarBrowserCard__root CarBrowserCard__small
                 -->
-                <a ng-repeat="car in vm.cars.v" class="CarBrowserCarCard__root CarBrowserCard__root CarBrowserCard__small">
+                <a ng-class="{'CarBrowserCarCard__root CarBrowserCard__root CarBrowserCard__small' : true}" ng-repeat="car in vm.cars.v" >
                     <div class="CarBrowserCarCard__favorite-heart CarFavoriteHeart__root">
                         <div class="CarFavoriteHeart__icon-container">
                             <div class="CarFavoriteHeart__icon"></div>
@@ -405,7 +405,7 @@
 </div>
 </span>
                 </div>
-            </div>
+            
         </div>
     </div>
 
