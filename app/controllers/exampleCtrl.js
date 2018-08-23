@@ -1,6 +1,6 @@
 (function() {
 
-    angular.module('haladrive').controller('exampleCtrl', function(API_URL, $http, $scope, $timeout, $rootScope){
+    angular.module('haladrive').controller('exampleCtrl', function(API_URL, $http, $scope, $timeout, $rootScope, $window){
 
 
         var vm = this;
@@ -17,6 +17,8 @@
 
         $scope.filterHeaderItem = [];
         $scope.appliedFilterItem = [];
+
+        $scope.isFetching = false;
 
 
 
@@ -260,16 +262,123 @@
                 
             }, function(response) {
 
-
-                
-
                 vm.cars = response.data; 
-
-
-               
 
             });
         };
+
+
+        $scope.fetchMore = function() 
+        {
+
+            $scope.isFetching = true;
+
+            console.log('fetch more is called');
+
+            var paginate = '&limit='+parseInt(vm.cars.limit)+'&page='+parseInt(++vm.cars.currentPage);
+             
+
+            var filterUrl = API_URL+'/api/vehicles/b/'+vm.queryString + '&minprice='+$scope.priceRange+'&minmileage='+$scope.mileRange+paginate;
+
+            $http.get(filterUrl).then(
+
+            function(response) {        
+
+                
+
+                for(var i=0; i <= response.data.v.length-1; i++)
+                {
+                    console.log(response.data.v[i]);
+
+                    vm.cars.v.push(response.data.v[i]);
+                }
+
+
+                vm.cars.limit = response.data.limit;
+                vm.cars.records = response.data.records;
+                vm.cars.noPages = response.data.noPages;
+                vm.cars.currentPage = response.data.currentPage;
+
+                $scope.isFetching = false;
+
+            }, function(response) {
+
+              //  vm.cars = response.data; 
+
+
+              console.log('error loading more data');
+
+              $scope.isFetching = false;
+
+            });
+
+
+
+        };
+
+        angular.element($window).bind('scroll', function() {
+
+            /*
+                $window.scrollY
+                window.pageYOffset
+                document.documentElement.offsetHeight
+                console.log('clientHeight' + document.documentElement.clientHeight);
+                console.log('offsetHeight' + document.documentElement.offsetHeight);
+                console.log('scrollHeight' + document.documentElement.scrollHeight);
+            */
+
+            var YScrollLimit = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+            if($window.pageYOffset == YScrollLimit)
+            {
+                
+
+                
+                var currentPage = parseInt(vm.cars.currentPage);
+
+                var totalPages = parseInt(vm.cars.noPages);
+
+
+                console.log('current Page' + currentPage);
+
+                console.log('total Page' + totalPages);
+
+                if(currentPage <= totalPages-1)
+                {
+                       
+
+                     if(!$scope.isFetching)
+                     {
+
+                        
+                        $scope.fetchMore();
+
+                     }
+                      
+                
+                }
+
+
+                else {
+                    console.log('records exhausted in this field');
+                }
+
+
+                
+
+                /*
+
+                console.log('cars Limit' + vm.cars.limit);
+                console.log('cars Limit' + vm.cars.records);
+                console.log('cars Limit' + vm.cars.noPages);
+                console.log('cars Limit' + vm.cars.currentPage);
+
+                */
+            }
+
+
+
+        });
 
 
         $scope.$watch('changeHistory', function (newValue, oldValue, scope) {
