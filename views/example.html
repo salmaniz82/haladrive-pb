@@ -146,7 +146,7 @@
 
         <div class="Row__root CarBrowser__sidebar-filters-result">
             <div class="Column__root" style="flex: 2 1 0%;">
-           {{'Shown of'}}     {{vm.cars.records}} matches :<a ng-if="haveFilters()"href="#" class="CarBrowser__sidebar-filters-clear" ng-click="clearFilters()">Clear Filters</a>
+           {{vm.cars.v.length}} of {{vm.cars.records}} matches :<a ng-if="haveFilters()"href="#" class="CarBrowser__sidebar-filters-clear" ng-click="clearFilters()">Clear Filters</a>
             </div>
             <div class="Column__root show-on-modal-open" style="flex: 1 1 0%;" >
                 <button class="Button__root Button__color-red Button__size-xsmall Button__weight-normal Button__inverted-colors" type="button" ng-click="modelFilterToggle()">
