@@ -6,6 +6,8 @@
         var vm = this;
         vm.cars = false;
 
+        
+
         vm.queryString = '?all';
 
         $scope.mileRange = 10;
@@ -252,19 +254,36 @@
         {
             
 
-            var filterUrl = API_URL+'/api/vehicles/b/'+vm.queryString + '&minprice='+$scope.priceRange+'&minmileage='+$scope.mileRange;
+            var itemsToRemove = (vm.cars.v.length - 10);
+            
 
-            $http.get(filterUrl).then(
+            vm.cars.v.splice(1, itemsToRemove);
 
-            function(response) {        
+            if(!$scope.isFetching)
+            {
 
-                vm.cars = response.data;
-                
-            }, function(response) {
+                $scope.isFetching = true;
 
-                vm.cars = response.data; 
+                var filterUrl = API_URL+'/api/vehicles/b/'+vm.queryString + '&minprice='+$scope.priceRange+'&minmileage='+$scope.mileRange;
 
-            });
+                $http.get(filterUrl).then(
+
+                function(response) {        
+
+                    vm.cars = response.data;
+
+                    $scope.isFetching = false;
+                    
+                }, function(response) {
+
+                    vm.cars = response.data; 
+
+                    $scope.isFetching = false;
+                });
+
+            }
+
+            
         };
 
 
@@ -273,12 +292,15 @@
 
             $scope.isFetching = true;
 
-            console.log('fetch more is called');
+            console.log('via load more' + vm.cars.v.length);
 
             var paginate = '&limit='+parseInt(vm.cars.limit)+'&page='+parseInt(++vm.cars.currentPage);
              
 
             var filterUrl = API_URL+'/api/vehicles/b/'+vm.queryString + '&minprice='+$scope.priceRange+'&minmileage='+$scope.mileRange+paginate;
+
+            
+
 
             $http.get(filterUrl).then(
 
@@ -288,7 +310,7 @@
 
                 for(var i=0; i <= response.data.v.length-1; i++)
                 {
-                    console.log(response.data.v[i]);
+                    
 
                     vm.cars.v.push(response.data.v[i]);
                 }
@@ -327,9 +349,51 @@
                 console.log('scrollHeight' + document.documentElement.scrollHeight);
             */
 
-            var YScrollLimit = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            function isMobile()
+            {
+                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                    return true;
+                }
 
-            if($window.pageYOffset == YScrollLimit)
+                else {
+                    return false;
+                }
+            }
+/*
+
+            console.log('clientHeight' + document.documentElement.clientHeight);
+            console.log('offsetHeight' + document.documentElement.offsetHeight);
+            console.log('scrollHeight' + document.documentElement.scrollHeight);
+
+
+            console.log('$window.pageYOffset' + $window.pageYOffset);
+
+            */
+
+            
+
+            var YScrollLimit;
+
+            if(!isMobile)
+            {
+                YScrollLimit = document.documentElement.scrollHeight - document.documentElement.clientHeight;    
+
+              //  console.log('not mobile');
+            }
+            else {
+                YScrollLimit = document.documentElement.scrollHeight - document.documentElement.clientHeight;    
+
+                // console.log('device is mobile');
+
+                YScrollLimit -= 100;
+
+
+            }
+
+            
+          //  console.log('Y limit' + YScrollLimit);
+
+            if($window.pageYOffset >= YScrollLimit)
             {
                 
 
@@ -337,11 +401,6 @@
                 var currentPage = parseInt(vm.cars.currentPage);
 
                 var totalPages = parseInt(vm.cars.noPages);
-
-
-                console.log('current Page' + currentPage);
-
-                console.log('total Page' + totalPages);
 
                 if(currentPage <= totalPages-1)
                 {
