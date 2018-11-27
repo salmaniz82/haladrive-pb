@@ -315,7 +315,6 @@
                     vm.cars.v.push(response.data.v[i]);
                 }
 
-
                 vm.cars.limit = response.data.limit;
                 vm.cars.records = response.data.records;
                 vm.cars.noPages = response.data.noPages;
