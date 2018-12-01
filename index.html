@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="haladrive" ng-controller="appCtrl as vm" class="js pointerevents no-touchevents cssanimations csstransforms supports csstransforms3d csstransitions">
 <head>
+	<base href="/">	
     <title>Haladrive : Application </title>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -127,13 +128,17 @@
 
 	<!-- Angular Controllers -->
 	<script type="text/javascript" src="app/controllers/appCtrl.js"></script>
-	<script type="text/javascript" src="app/controllers/exampleCtrl.js"></script>
+	<script type="text/javascript" src="app/controllers/carsCtrl.js"></script>
 	<script type="text/javascript" src="app/controllers/authAppCtrl.js"></script>
 	<script type="text/javascript" src="app/controllers/loginCtrl.js"></script>
 	<script type="text/javascript" src="app/controllers/logoutCtrl.js"></script>
 	<script type="text/javascript" src="app/controllers/homeCtrl.js"></script>
 	<script type="text/javascript" src="app/controllers/notFoundCtrl.js"></script>
 	<script type="text/javascript" src="app/controllers/dashboardCtrl.js"></script>
+
+	<script type="text/javascript" src="app/controllers/vehicleDetailsCtrl.js"></script>
+
+	
 
     <!-- booking controller -->
 	<script type="text/javascript" src="app/controllers/bookingCtrl.js"></script>
@@ -216,6 +221,9 @@
     </style>
 
 
+    
+
+
 </head>
 <body ng-class="[bodyFilterModelClass()]" scroll>
 
@@ -231,7 +239,8 @@
 			<img src="images/spinner.svg">
 	</div>
 
-<div ui-view> </div>
+
+<div ui-view></div>
 
 
 </main>

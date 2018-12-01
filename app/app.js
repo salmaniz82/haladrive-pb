@@ -16,7 +16,11 @@
 
 angular.module('haladrive').run(['$rootScope','$state', function ($rootScope, $state) {
 
-    $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams, options) {
+    $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams, options, $window) {
+
+        document.getElementsByTagName("body")[0].removeAttribute("scroll");
+        angular.element($window).unbind('scroll');
+        angular.element($window).unbind('resize');
 
     });
 

@@ -7,11 +7,16 @@
 
     function stateConfig($stateProvider, $urlRouterProvider, $locationProvider){
 
+         $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: true  
+         });
+
         $urlRouterProvider.otherwise('notfound');
         $stateProvider
         .state('home', {
 
-        url: '',
+        url: '/',
         templateUrl: 'views/home.html',
         controller : 'homeCtrl'
 
@@ -24,16 +29,21 @@
 
         })
 
-        .state('test', {
 
-            url: '/test',
-            templateUrl: 'views/test.html'
+        .state('cars', {
+            url: '/cars',
+            templateUrl: 'views/cars.html',
+            controller: 'carsCtrl as vm'
         })
 
-        .state('example', {
-            url: '/example',
-            templateUrl: 'views/example.html',
-            controller: 'exampleCtrl as vm'
+
+        .state('details', {
+
+            url: '/car-details/:id',
+            templateUrl: 'views/vehicle-details.html',
+            
+            controller: 'vehicleDetailsCtrl as vm'
+            
         })
 
 
@@ -94,12 +104,7 @@
             controller: 'vehicleCtrl as vm'
         })
 
-        .state('app.vdetails', {
-
-            url: '/vehicles/detail/:id',
-            templateUrl: 'views/vehicle-details.html',
-            controller: 'vehicleDetailCtrl as vm'
-        })
+        
 
         .state('app.vehiclesadd', {
             
@@ -154,116 +159,6 @@
             controller: 'bookingCtrl as vm'
         })
 
-        .state('app.invoices', {
-            
-            url: '/invoices',
-            templateUrl: 'views/invoices.html',
-            controller: 'invoiceCtrl as vm'
-        })
-
-        .state('app.features', {
-            
-            url: '/features',
-            templateUrl: 'views/features.html',
-            controller: 'featuresCtrl as vm'
-        })
-
-        .state('app.finance', {
-            
-            url: '/finance',
-            templateUrl: 'views/finance.html',
-            controller: 'financeCtrl as vm'
-        })
-
-        .state('app.finadd', {
-
-            url: '/financeadd',
-            templateUrl: 'views/finance-add.html',
-            controller: 'financeAddCtrl as vm'
-        })
-
-        .state('app.finedit', {
-
-            url: '/finedit/:id',
-            templateUrl: 'views/finance-edit.html',
-            controller: 'financeEditCtrl as vm'
-        })
-
-
-        .state('app.insurance', {
-
-            url: '/insurance',
-            templateUrl: 'views/insurance.html',
-            controller: 'insuranceCtrl as vm'
-        })
-
-        .state('app.vinsurance', {
-            url: '/vinsurance/:id',
-            templateUrl: 'views/v-insurance.html',
-            controller: 'vinsuranceCtrl as vm'
-        })
-
-        .state('app.vfinance', {
-            url: '/vfinance/:id',
-            templateUrl: 'views/v-finance.html',
-            controller: 'vfinanceCtrl as vm'
-        })
-
-        .state('app.maintenance', {
-            url: '/maintenance/:id',
-            templateUrl: 'views/maintenance.html',
-            controller: 'maintenanceCtrl as vm'
-        })
-
-
-        .state('app.insadd', {
-            url: '/insadd',
-            templateUrl: 'views/insurance-add.html',
-            controller: 'insuranceCtrl as vm'
-        })
-
-        .state('app.global', {
-            url : '/global',
-            templateUrl: 'views/global.html',
-            controller: 'globalCtrl as vm',
-            authorize : true,
-            resolve : {
-            security: ['$q','auth', function($q, auth){
-            if(auth.getUser().role_id != 1){
-                return $q.reject("Not Authorized");
-                }
-                }]
-            }
-
-            })
-
-            .state('app.gsection', {
-                url : '/global/:section',
-                templateUrl: 'views/global-section.html',
-                controller: 'gSectionCtrl as vm',
-                authorize : true,
-                resolve : {
-                    security: ['$q','auth', function($q, auth){
-                    if(auth.getUser().role_id != 1){
-                    return $q.reject("Not Authorized");
-                    }
-                    }]
-                }
-            })
-
-            .state('app.brand', {
-                url : '/brand/:id',
-                templateUrl: 'views/global-brand.html',
-                controller: 'gBrandCtrl as vm',
-                authorize : true,
-                resolve : {
-                    security: ['$q','auth', function($q, auth){
-                    if(auth.getUser().role_id != 1){
-                    return $q.reject("Not Authorized");
-                    }
-                    }]
-                }
-            })
 
             .state('app.test', {
 
