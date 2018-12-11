@@ -4,7 +4,7 @@
 
 		vm = this;
 
-		if(! auth.isLoggedIn() )
+		if(!auth.isLoggedIn() )
 		{
 			$state.go('ua.login');
 		}

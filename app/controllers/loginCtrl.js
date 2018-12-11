@@ -41,6 +41,8 @@
                 localStorage.setItem('auth_token', auth_token);
                 var user = response.data.user;
 
+                
+
                 var hdAuthUser = JSON.stringify(user);
 
                 // btoa() encode

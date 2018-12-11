@@ -1,4 +1,4 @@
-
+<p>{{vm.bd}}</p>
 <div id="page-node">
     <div class="CarProfileV2__root">
         <div class="SiteChromeHeader__root ">
@@ -72,6 +72,207 @@
             <div id="page-container">
                 <div>
                     <!-- react-empty: 83 -->
+
+
+                    <div ng-if="vm.bookingModal"  class="Modal__root CarProfilePage__manage-appointment-modal Modal__is-open Modal__layout-feature">
+                        <div class="Modal__content Modal__content-full-page">
+                        <div class="Modal__close" tabindex="-1" ng-click="vm.closeModal()"></div>
+                        <div class="TestDriveBookingFlow__root"><div class="TestDriveBookingFlow__form-wrapper">
+                            <div class="TestDriveBookingFlow__form-container-2"><div>
+                                <div class="SchedulingForm2__root"><div class="SchedulingForm2__primary-content">
+                                    <div class="LocationAndTimeForm__root"><h2 class="SchedulingForm2__primary-header"><span><!-- react-text: 1173 -->Pick your desire <!-- /react-text --><span class="NoWrap__root">booking date and time</span></span></h2><div class="LocationAndTimeForm__come-to-us-message"><a>Come to us</a> and we‘ll make it breeze<!-- /react-text --></div>
+
+                        <form class="ModelForm__root LocationAndTimeForm__address-model-form">
+
+
+                            <div>
+
+                                <div class="LocationAndTimeForm__date-time-row"><div class="LocationAndTimeForm__date-time-column">
+
+
+                                <div class="DateDropdown__root">
+
+                                    <input type="text" name="startDate" datepicker ng-model="vm.bd.sDate" style="width: 100%; border: none; outline: none" mesage="hello me">
+
+                                </div>
+
+
+                            </div>
+
+
+                                <div class="LocationAndTimeForm__date-time-column"><span class="black shift-select-container">
+
+                                <select chosen placeholder-text-single="'Start Time'" disable-search="true" id="filter-select-1" style="width:100%" ng-model="vm.bd.sTime">
+                                    <option value=""></option>
+                                    <option ng-repeat="timerange in vm.timerangeArr" ng-value="timerange">{{timerange}}</option>
+                                </select>
+
+                                </span></div>
+                            </div>
+
+
+
+                                <div class="LocationAndTimeForm__date-time-row"><div class="LocationAndTimeForm__date-time-column">
+
+
+                                <div class="DateDropdown__root">
+
+                            <input type="text" name="endDate" datepicker style="width: 100%; border: none; outline: none" message="hello say" ng-model="vm.bd.eDate">
+
+                                </div>
+
+
+                            </div>
+
+
+                                <div class="LocationAndTimeForm__date-time-column"><span class="black shift-select-container">
+
+                                <select chosen placeholder-text-single="'Start Time'" disable-search="true" id="filter-select-1" style="width:100%" ng-model="vm.bd.eTime">
+                                    <option value=""></option>
+                                    <option ng-repeat="timerange in vm.timerangeArr" ng-value="timerange">{{timerange}}</option>
+                                </select>
+
+                                </span></div>
+                            </div>
+
+
+                            <div class="LocationAndTimeForm__date-time-row"><div class="LocationAndTimeForm__date-time-column"></div><div class="LocationAndTimeForm__date-time-column"></div></div></div></form><div class="LocationAndTime__button-container">
+                                <button class="LocationAndTimeForm__submit Button__root Button__color-red Button__size-medium Button__weight-normal" type="button"
+                                ng-click="vm.bookingRequest()">
+                                    <span class="Button__content">Confirm Booking</span></button></div></div></div></div></div></div></div></div></div>
+
+                            </div> <!-- vm.bookingmodal -->  
+
+
+                            <!-- start auth modal -->
+
+
+                            <div ng-if="vm.showAuthModal" class="Modal__root Modal__is-open Modal__layout-marketing">
+   <div class="Modal__content">
+      <div class="Modal__close" tabindex="-1" ng-click="vm.showAuthModal = false"></div>
+      <div>
+         <div class="AccountFormContainer__root">
+
+            <div class="modal_body_content" ng-if="vm.modalType == 'login'">
+
+
+               <div class="AccountFormContainer__header">Sign in</div>
+               <div class="AccountFormContainer__form-container">
+                  <form class="ModelForm__root">
+                     <div class="ModelFormInput__root">
+                        <label class="ModelFormInput__label" for="ModelFormInput__email">
+                           Email
+                        </label>
+                        <input type="email" id="ModelFormInput__email" name="email" value="" placeholder="Email" class="ModelFormInput__input" ng-model="vm.creds.email">
+                        <div class="ModelFormInput__error ModelFormInput__email-error"></div>
+                     </div>
+                     <div class="ModelFormInput__root">
+                        <label class="ModelFormInput__label" for="ModelFormInput__password">
+                           Password
+                        </label>
+                        <input type="password" id="ModelFormInput__password" name="password" value="" placeholder="Password" class="ModelFormInput__input"
+                        ng-model="vm.creds.password"
+                        >
+                        <div class="ModelFormInput__error ModelFormInput__password-error"></div>
+                     </div>
+                     <div class="AccountSignInForm__inner"></div>
+                     <button class="AccountFormContainer-button Button__root Button__color-red Button__size-medium Button__weight-normal Button__full-width" type="submit" ng-click="vm.attemptLogin()"><span class="Button__content">Sign in</span></button>
+                  </form>
+                  <a class="AccountSignIn__cta-alternative" href="#" ng-click="vm.modalType = 'forget'">Forgot password</a>
+                  <div class="ContentDividerLine__root">
+                     <div class="ContentDividerLine__line ContentDividerLine__line-flex"></div>
+                     <div class="ContentDividerLine__content">or</div>
+                     <div class="ContentDividerLine__line ContentDividerLine__line-flex"></div>
+                  </div>
+                  <button class="AccountFormContainer-button Button__root Button__color-red Button__size-medium Button__weight-normal Button__full-width Button__inverted-colors" type="button" ng-click="vm.modalType = 'register'"><span class="Button__content">Create an account</span></button>
+               </div>
+
+            </div><!-- modal_body_content -->
+
+
+
+            <div class="modal_content_body" ng-if="vm.modalType == 'register'">
+                  <div class="AccountFormContainer__header">Create an account</div>
+                  <div class="AccountFormContainer__form-container">
+                     <form class="ModelForm__root">
+                        <div class="ModelFormInput__root">
+                           <label class="ModelFormInput__label" for="ModelFormInput__email">
+                              <!-- react-text: 2292 -->Email<!-- /react-text -->
+                           </label>
+                           <input type="email" id="ModelFormInput__email" name="email" value="" placeholder="Email" class="ModelFormInput__input"
+                           ng-model="vm.creds.email"
+                           >
+                           <div class="ModelFormInput__error ModelFormInput__email-error"></div>
+                        </div>
+                        <div class="ModelFormInput__root">
+                           <label class="ModelFormInput__label" for="ModelFormInput__password">
+                              <!-- react-text: 2297 -->Password<!-- /react-text -->
+                           </label>
+                           <input type="password" id="ModelFormInput__password" name="password" value="" placeholder="Password" class="ModelFormInput__input"
+                           ng-model="vm.creds.password"
+                           >
+                           <div class="ModelFormInput__error ModelFormInput__password-error"></div>
+                        </div>
+                        <div class="TermsAcceptanceCheckbox__terms-checkbox ModelFormCheckbox__root" tabindex="0">
+                           <input type="checkbox" id="ModelFormCheckbox__terms" name="terms" placeholder="[object Object]" class="ModelFormCheckbox__input" value="on">
+                           <label class="ModelFormCheckbox__label ModelFormInput__label-show ModelFormInput__label" for="ModelFormCheckbox__terms">
+                              <div class="ModelFormCheckbox__checkbox Checkbox__root Checkbox__size-normal Checkbox__color-red Checkbox__bordered"></div>
+                              <span class="ModelFormCheckbox__label-content">
+                                 <span class="TermsAcceptanceCheckbox__terms-label">
+                                    I agree to Shift’s<a target="_blank" href="/terms">Terms of Service &amp; Privacy Policy</a>
+                                 </span>
+                              </span>
+                           </label>
+                           <div class="ModelFormInput__error ModelFormInput__terms-error"></div>
+                        </div>
+                        <button class="AccountFormContainer-button Button__root Button__color-red Button__size-medium Button__weight-normal Button__full-width" type="submit"><span class="Button__content">Sign up</span></button>
+                     </form>
+                     <div class="ContentDividerLine__root">
+                        <div class="ContentDividerLine__line ContentDividerLine__line-flex"></div>
+                        <div class="ContentDividerLine__content">or</div>
+                        <div class="ContentDividerLine__line ContentDividerLine__line-flex"></div>
+                     </div>
+                     <button class="AccountFormContainer-button Button__root Button__color-red Button__size-medium Button__weight-normal Button__full-width Button__inverted-colors" type="submit" ng-click="vm.modalType = 'login'"><span class="Button__content">Sign in</span></button>
+                  </div>
+               </div><!-- modal_content_body -->
+
+
+            <div class="modal_content_body" ng-if="vm.modalType == 'forget'">
+            <div class="AccountForgotPassword__root">
+               <div class="AccountFormContainer__root">
+                  <div>
+                     <div class="AccountFormContainer__header">Reset password</div>
+                     <div class="AccountFormContainer__form-container">
+                        <div class="AccountForgotPassword__message">We’ll send a link to reset your password</div>
+                        <form class="ModelForm__root">
+                           <div class="ModelFormInput__root">
+                              <label class="ModelFormInput__label" for="ModelFormInput__email">
+                                 <!-- react-text: 1150 -->Email address<!-- /react-text -->
+                              </label>
+                              <input type="email" id="ModelFormInput__email" name="email" placeholder="Email address" class="ModelFormInput__input">
+                              <div class="ModelFormInput__error ModelFormInput__email-error"></div>
+                           </div>
+                           <button class="Button__root Button__color-red Button__size-medium Button__weight-normal Button__full-width" type="submit"><span class="Button__content">Send reset link</span></button>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div><!-- modal_content_body -->
+
+         </div>
+      </div>
+   </div>
+</div>
+
+                    
+
+
+                            <!-- end auth modal -->
+
+
+
+
                     <div class="CarProfilePage__body">
                         <section class="CarProfilePageLeader__root">
                             <div class="CarProfileCarousel__root CarProfileCarousel__root--hover CarProfileCarousel__root--hover-image">
@@ -87,9 +288,6 @@
                                     max-width: 100%;
                                     height: auto; padding-bottom: 10px;
                                     ">
-
-
-
                                     
                                     <!--owl-example-->
 
@@ -121,7 +319,8 @@
                                         <div class="CarProfilePage__leader-buttons">
                                             <div class="CarProfile__buttons-container">
                                                 <div class="CarProfile__buttons-container-row">
-                                                    <button class="CarProfileLeader__primary-button Button__root Button__color-red Button__size-big Button__weight-normal" type="button"><span class="Button__content">Book a test drive</span></button>
+                                                    <button class="CarProfileLeader__primary-button Button__root Button__color-red Button__size-big Button__weight-normal" type="button" ng-click="vm.lauchModal()">
+                                                        <span class="Button__content">Book selected Car</span></button>
                                                     <button class="CarProfilePageFavoriteButton__root CarProfile__button-favorite Button__root Button__color-red Button__size-big Button__weight-normal Button__inverted-colors" type="button"><span class="Button__content"><div class="CarProfilePageFavoriteButton__heart CarFavoriteHeart__root"><div class="CarFavoriteHeart__icon-container"><div class="CarFavoriteHeart__icon"></div></div></div></span></button>
                                                 </div>
                                             </div>
@@ -130,8 +329,8 @@
                                     <div class="CarProfilePage__leader-row CarProfilePage__leader-car-info--fixed SiteChromeHeader__inverted-colors">
                                         <a class="CarProfilePage__fixed-logo SiteChromeHeader__shift-logo SiteChromeHeader__shift-logo" href="/"></a>
                                         <h1 class="CarProfilePage__leader-car-name"><span class="CarProfilePage__leader-car-year">2015</span><span class="CarProfilePage__leader-car-make-model-trim" title="Honda CR-V LX"><span class="CarProfilePage__leader-car-make">Honda</span>
-                                <!-- react-text: 220 -->
-                                <!-- /react-text --><span class="CarProfilePage__leader-car-model-trim">CR-V LX</span></span>
+                                
+                                        <span class="CarProfilePage__leader-car-model-trim">CR-V LX</span></span>
                             </h1>
                                         <div class="CarProfilePrice__root">
                                             <div class="CarProfilePrice__total-wrapper">
@@ -151,7 +350,8 @@
                                         <div class="CarProfilePage__leader-buttons">
                                             <div class="CarProfile__buttons-container">
                                                 <div class="CarProfile__buttons-container-row">
-                                                    <button class="CarProfileLeader__primary-button Button__root Button__color-red Button__size-big Button__weight-normal" type="button"><span class="Button__content">Book a test drive</span></button>
+                                                    <button class="CarProfileLeader__primary-button Button__root Button__color-red Button__size-big Button__weight-normal" type="button" ng-click="vm.lauchModal()">
+                                                        <span class="Button__content">Book a test drive</span></button>
                                                     <button class="CarProfilePageFavoriteButton__root CarProfile__button-favorite Button__root Button__color-red Button__size-big Button__weight-normal Button__inverted-colors" type="button"><span class="Button__content"><div class="CarProfilePageFavoriteButton__heart CarFavoriteHeart__root"><div class="CarFavoriteHeart__icon-container"><div class="CarFavoriteHeart__icon"></div></div></div></span></button>
                                                 </div>
                                             </div>
@@ -205,7 +405,8 @@
                                                         {{vm.car.accident_damage}} accidents
                                                         
                                                     </div>
-                                                    <div class="CarProfileDetails__overview-item-name"><a target="_blank" href="https://www.carfax.com/VehicleHistory/p/Report.cfx?partner=STG_0&amp;vin=5J6RM4H35FL061766">Carfax</a></div>
+                                                    <div class="CarProfileDetails__overview-item-name">
+                                                        <a target="_blank" href="https://www.carfax.com/VehicleHistory/p/Report.cfx?partner=STG_0&amp;vin=5J6RM4H35FL061766">Carfax</a></div>
                                                 </div>
                                                 <div class="CarProfileDetails__overview-item CarProfileDetails__overview-inspection">
                                                     <div class="CarProfileDetails__overview-item-name">
@@ -235,10 +436,8 @@
                                                     </div>
                                                     <div class="ContentToggle__content">
                                                         <p class="CarProfileDetails__financing-copy">
-                                                            <!-- react-text: 314 -->90% of our financing customers choose a loan with us. Instant decisions, rates as low as 2%, and seamless car-buying.
-                                                            <!-- /react-text -->
-                                                            <!-- react-text: 315 -->
-                                                            <!-- /react-text --><a target="_blank" href="/finance">Learn more</a></p><a class="CarProfileDetails__financing-calculator" href="#">Estimate monthly payment</a></div>
+                                                            90% of our financing customers choose a loan with us. Instant decisions, rates as low as 2%, and seamless car-buying.
+                                                            <a target="_blank" href="/finance">Learn more</a></p><a class="CarProfileDetails__financing-calculator" href="#">Estimate monthly payment</a></div>
                                                 </div><a class="CarProfileDetails__financing-link CarProfileV2__optimizely-start-financing-tracking" target="_blank" href="/apply-to-finance?cid=c164684">Apply online</a></div>
                                             <div class="CarProfileDetails__overview-engagement">
                                                 <div class="CarProfileEngagement__root">
@@ -250,10 +449,8 @@
                                             <div class="CarProfileDetails__pricing-items">
                                                 <div class="CarProfileDetails__pricing-item">
                                                     <div class="CarProfileDetails__pricing-item-name">
-                                                        <!-- react-text: 327 -->No-haggle list price
-                                                        <!-- /react-text -->
-                                                        <!-- react-text: 328 -->
-                                                        <!-- /react-text -->
+                                                        No-haggle list price
+                                                        
                                                         <div class="CarProfileDealerPriceComparison__root">
                                                             <div>
                                                                 <div class="Row__root CarProfileDealerPriceComparison__comparison-display CarProfileDealerPriceComparison__row">
@@ -371,11 +568,11 @@
                                                 <div class="HorizontalRule__root CarProfileDetails__specs-hr"></div>
                                                 <div class="CarProfileDetails__specs-item">
                                                     <div class="CarProfileDetails__specs-item-name">Exterior</div>
-                                                    <div class="CarProfileDetails__specs-item-value"><span class="na-api">Alabaster Silver Metallic</span></div>
+                                                    <div class="CarProfileDetails__specs-item-value">{{vm.car.exteriorEN}}</div>
                                                 </div>
                                                 <div class="CarProfileDetails__specs-item">
                                                     <div class="CarProfileDetails__specs-item-name">Interior</div>
-                                                    <div class="CarProfileDetails__specs-item-value"><span class="na-api">Beige</span></div>
+                                                    <div class="CarProfileDetails__specs-item-value">{{vm.car.interiorEN}}</div>
                                                 </div>
                                                 <div class="HorizontalRule__root CarProfileDetails__specs-hr"></div>
                                                 <div class="CarProfileDetails__specs-item">
@@ -644,7 +841,8 @@
                             <div class="CarActionButtonsPhone__container"><span><div class="CarActionButtonsPhone__container-row"><div class="CarActionButtonsPhone__container-col"><button class="CarProfilePageFavoriteButton__root CarActionButtonsPhone__button CarActionButtonsPhone__button-favorite Button__root Button__color-red Button__size-big Button__weight-normal" type="button"><span class="Button__content"><div class="CarProfilePageFavoriteButton__heart CarFavoriteHeart__root"><div class="CarFavoriteHeart__icon-container"><div class="CarFavoriteHeart__icon"></div></div></div></span></button>
                             </div>
                             <div class="CarActionButtonsPhone__container-col">
-                                <button class="CarActionButtonsPhone__button Button__root Button__color-red Button__size-big Button__weight-normal" type="button"><span class="Button__content">Book a test drive</span></button>
+                                <button class="CarActionButtonsPhone__button Button__root Button__color-red Button__size-big Button__weight-normal" type="button" ng-click="vm.lauchModal()"
+                                ><span class="Button__content">Book a test drive</span></button>
                             </div>
                         </div>
                         </span>

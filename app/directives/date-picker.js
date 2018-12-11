@@ -1,31 +1,32 @@
 (function(){
-    angular.module('haladrive')
 
-    .directive('datePicker', function() {
 
-        return {
+    angular.module('haladrive').directive("datepicker", function () {
+          return {
+            restrict: "A",
+            require: "ngModel",
+            link: function (scope, elem, attrs, ngModelCtrl) {
 
-            restrict: 'C',
-            link: function(scope, ele, attr, ngModel)
-            {
-                ele.pickadate({
-                    min: true,
-                    format: 'yyyy-mm-dd',
-                    selectMonths: true, // Creates a dropdown to control month
-                    selectYears: 15, // Creates a dropdown of 15 years to control year,
-                    today: 'Today',
-                    clear: 'Clear',
-                    close: 'Ok',
-                    closeOnSelect: true // Close upon selecting a date,
+              console.log(attrs.message);
+
+              var updateModel = function (dateText) {
+                scope.$apply(function () {
+                  ngModelCtrl.$setViewValue(dateText);
                 });
+              };
+              var options = {
+                dateFormat: "yy-mm-dd",
+                minDate: new Date(),
+                onSelect: function (dateText) {
+                  updateModel(dateText);
+                }
+              };
+              elem.datepicker(options);
             }
+          }
+        })
+    
 
-        };
-
-
-
-
-
-    });
+    
 
 })();

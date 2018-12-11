@@ -41,8 +41,15 @@
 
             url: '/car-details/:id',
             templateUrl: 'views/vehicle-details.html',
-            
             controller: 'vehicleDetailsCtrl as vm'
+            
+        })
+
+        .state('modal', {
+
+            url: '/modal',
+            templateUrl: 'views/modalbase.html',
+            controller: 'modalCtrl as vm'
             
         })
 

@@ -1,19 +1,157 @@
 (function() {
 
-    angular.module('haladrive').controller('vehicleDetailsCtrl', function(API_URL, $stateParams, $http, $scope, $window){
+    angular.module('haladrive').controller('vehicleDetailsCtrl', function(API_URL, $stateParams, $http, $scope, $state, auth, $window){
 
         document.getElementsByTagName("body")[0].removeAttribute("scroll");
 
+
         var vm = this;
 
-        vm.carid = $stateParams.id
+        vm.loginStatus = null;
+        vm.wrongCreds = null;
+
+        vm.redirectionToBooking = false;
+
+        vm.creds = {};
+
+        
+        
+        
+
+
+        vm.bookingModal = false;
+        vm.showAuthModal = false;
+        vm.modalType = 'login';
+
+
+
+        vm.carid = $stateParams.id;
+
+
+        vm.lauchModal = function()
+        {
+            if(!auth.isLoggedIn())
+            {
+                vm.showAuthModal = true;
+                vm.redirectionToBooking = true;
+
+            }
+            else {
+                vm.bookingModal = true;
+            }
+                        
+        }
+
+        vm.closeModal = function()
+        {
+           vm.bookingModal = false;
+        }
+
+
+        vm.attemptLogin = function()
+        {
+            
+            console.log('attempt to login start');
+
+            console.log(vm.creds);
+
+            var promise  = auth.login(vm.creds);
+            promise.then(loginSuccess, loginError);
+
+
+            function loginSuccess(response)
+            {
+                vm.loginStatus = true;
+                vm.wrongCreds = false;
+
+
+                if(vm.redirectionToBooking)
+                {
+                    
+
+                    var auth_token = null;
+
+                    if(response.data.token != undefined && response.data.user.role_id == 4)
+                    {
+                        auth_token = response.data.token;
+                        localStorage.setItem('auth_token', auth_token);
+                        var user = response.data.user;
+
+                        console.log(user.role_id);
+
+                        var hdAuthUser = JSON.stringify(user);
+
+                        // btoa() encode
+                        // atob() decode
+
+                        hdAuthUser = btoa(hdAuthUser);
+                        localStorage.setItem('hdauEn', hdAuthUser);
+
+                        auth.getUser();
+
+                        vm.showAuthModal = false;
+                        vm.bookingModal = true;
+
+                    }
+                    // close auth modal and open booking modal box
+                    
+
+                }
+
+                console.log(response);
+            }
+
+            function loginError(response)
+            {   
+                vm.loginStatus = false;
+                vm.wrongCreds = true;
+                console.log(response);
+            }
+
+
+        };
+
+        vm.bd = {
+                'vehicle_id': vm.carid
+        };
+
+        vm.bookingRequest = function()
+        {
+
+            
+
+            var bookingUrl = API_URL+'/api/booking';
+
+              $http({
+                method: 'POST',
+                url:  bookingUrl,
+                data: vm.bd
+            }).then(function(response){
+
+                console.log(response.data.message)
+
+            }, function(response) {
+
+
+                console.log(response.data.message);
+
+            });
+            
+
+        };
+
+
+
+
+
+
 
 
         var targetUrl = API_URL+'/api/vehicles/'+vm.carid;
 
         
 
-        vm.message = "PLease echo this in the page";
+        
 
         angular.element($window).unbind('scroll');
         angular.element($window).unbind('resize');
@@ -63,16 +201,34 @@
 
                 console.log('cannot fetch the vehicle');
 
-         })
+         });
 
 
+         vm.generateTimeArray = function(step) {
+
+            var dtr = [];
+                var dt = new Date(1970, 0, 1, 0, 0, 0, 0);
+                while (dt.getDate() == 1) {
+                // var point = dt.toLocaleTimeString('en-US');
+
+                var point = dt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
 
 
+                dt.setMinutes(dt.getMinutes() + step);
+                dtr.push(point);
+            }
+
+            return dtr;
+        }
 
 
-
+        vm.timerangeArr = vm.generateTimeArray(30);
+        
 
     });
+
+
+
 
 })();
 
