@@ -2,7 +2,7 @@
 	
     function apiUrl()
     {
-      return (location.hostname == 'mobile.haladrive.com') ? 'https://api.haladrive.com' : 'http://api.haladrive.local';
+      return (location.hostname == 'haladrive.com') ? 'https://api.haladrive.com' : 'http://api.haladrive.local';
     }
 
 
