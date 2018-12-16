@@ -1,4 +1,36 @@
-<p>Show Booking here ..</p>
 
 
-<p>{{vm.dataList.b}}</p>
+
+<div>
+      <div class="AccountDashboard__container-title">
+         <p>Bookings</p>  
+      </div>
+
+      
+
+
+      <table id="book-table">
+      	<thead>
+      		<tr>
+      			<th>Vehicle Name</th>
+      			<th>Start Datetime</th>
+      			<th>End Datetime</th>
+      			<th>Status</th>
+      			<th>Action</th>
+      		</tr>
+      	</thead>
+      	<tbody>
+      		<tr ng-repeat="v in vm.dataList.b">
+      			<td>{{v.makerEN + ' ' + v.modelEN}}</td>
+      			<td>{{v.startdatetime}}</td>
+      			<td>{{v.enddatetime}}</td>
+      			<td>{{v.status}}</td>
+      			<td>Action</td>
+      		</tr>
+      	</tbody>
+      </table>
+
+
+
+
+</div>

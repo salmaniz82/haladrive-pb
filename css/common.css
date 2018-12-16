@@ -5,3 +5,31 @@ span.na-api{color: red; text-decoration: line-through;}
 
 
 .MyDashboardHeader__nav-items a.HeaderLink__active .HoverUnderline__underline {opacity: 1;}
+
+
+
+.MyDashboardNoActivity__container {
+	background-color: #ffffff;
+    margin: 0 auto;
+    max-width: inherit !important;    
+    width: 100%;
+}
+
+
+table#book-table {width: 100% !important; padding: 10px}
+
+table#book-table thead th {font-weight: bold; text-align: left; padding-bottom: 5px; margin-bottom: 5px;}
+
+table#book-table thead {border-bottom: 1px solid #333;}
+
+table#book-table tbody td {font-size: 0.8rem; text-align: left}
+
+table#book-table tbody tr td {padding-top: 10px; padding-bottom: 10px;}
+
+
+.DateDropdown__root input::placeholder {
+	color: rgb(155,155,155); font-size: 1rem;
+	font-family: 'Gotham Narrow SSm A', 'Gotham Narrow SSm B', Helvetica Neue, Helvetica, Arial;
+	font-weight: normal;
+}
+

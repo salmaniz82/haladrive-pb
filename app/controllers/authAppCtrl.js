@@ -6,7 +6,7 @@
 
 		if(!auth.isLoggedIn() )
 		{
-			$state.go('ua.login');
+			$state.go('home');
 		}
 
 		var allowedRoles = [4];

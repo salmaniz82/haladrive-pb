@@ -132,7 +132,12 @@
                 data: vm.bd
             }).then(function(response){
 
-                console.log(response.data.message)
+                //console.log(response.data.message)
+
+                if(response.status == 200)
+                {
+                    $state.go('app.bookings');
+                }
 
             }, function(response) {
 

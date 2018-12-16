@@ -8,7 +8,7 @@
 		localStorage.removeItem('auth_token');
        	localStorage.removeItem('hdauEn');
 
-		$state.go('ua.login');
+		$state.go('home');
 
 	});
 

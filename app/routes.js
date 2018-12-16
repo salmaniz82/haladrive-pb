@@ -14,12 +14,25 @@
 
         $urlRouterProvider.otherwise('notfound');
         $stateProvider
+
+
+
         .state('home', {
+            url: '/',
+            templateUrl: 'views/cars.html',
+            controller: 'carsCtrl as vm'
+        })
 
-        url: '/',
-        templateUrl: 'views/home.html',
-        controller : 'homeCtrl'
+        .state('details', {
+            url: '/car-details/:id',
+            templateUrl: 'views/vehicle-details.html',
+            controller: 'vehicleDetailsCtrl as vm'           
+        })
 
+        .state('app', {
+            controller: 'authAppCtrl',
+            templateUrl: 'views/main.html',
+            abstract: true
         })
 
         .state('app.profile', {
@@ -29,24 +42,18 @@
 
         })
 
-
-        .state('cars', {
-            url: '/cars',
-            templateUrl: 'views/cars.html',
-            controller: 'carsCtrl as vm'
+        .state('app.bookings', {     
+            url: '/bookings',
+            templateUrl: 'views/bookings.html',
+            controller: 'bookingCtrl as vm'
         })
 
-        
-
-
-        .state('details', {
-
-            url: '/car-details/:id',
-            templateUrl: 'views/vehicle-details.html',
-            controller: 'vehicleDetailsCtrl as vm'
+        .state('app.logout', {
+            url: '/logout',
+            templateUrl: 'views/logout.html',
+            controller: 'logoutCtrl as vm'
             
         })
-
 
         .state('ua', {
             templateUrl: 'views/templates/ua.html',
@@ -68,37 +75,10 @@
 
         })
 
-
-        .state('app', {
-            controller: 'authAppCtrl',
-            templateUrl: 'views/main.html',
-            abstract: true
-        })
-
-        .state('app.child', {
-            url: '/child',
-            templateUrl: 'views/child.html'
-        })
-
-
-        .state('app.bookings', {     
-            url: '/bookings',
-            templateUrl: 'views/bookings.html',
-            controller: 'bookingCtrl as vm'
-        })
-
-        .state('app.logout', {
-            templateUrl: 'views/logout.html',
-            controller: 'logoutCtrl as vm'
-            
-        })
-
         .state('app.dashboard', {
-
             url: '/dashboard',
             templateUrl: 'views/dashboard.html',
             controller: 'dashboardCtrl as vm'
-
         })
 
 
@@ -107,64 +87,6 @@
             url: '/settings',
             templateUrl: 'views/settings.html'
         })
-
-        
-        .state('app.vehicles', {
-            
-            url: '/vehicles',
-            templateUrl: 'views/vehicles.html',
-            controller: 'vehicleCtrl as vm'
-        })
-
-        
-
-        .state('app.vehiclesadd', {
-            
-            url: '/vehicles/add',
-            templateUrl: 'views/vehicle-add.html',
-            controller: 'vehicleAddCtrl as vm'
-        })
-
-        .state('app.vslide', {
-            
-            url: '/vehicle/vslides/:id',
-            templateUrl: 'views/vehicle-add-slides.html',
-            controller: 'vehicleAddSlidesCtrl as vm'
-        })
-
-
-        .state('app.vehicleEdit', {
-            
-            url: '/vehicle/edit/:id',
-            templateUrl: 'views/vehicle-edit.html',
-            controller: 'vehicleEditCtrl as vm'
-        })
-
-
-
-        .state('app.clients', {
-            
-            url: '/clients',
-            templateUrl: 'views/clients.html',
-            controller: 'clientsCtrl as vm'
-        })
-
-        .state('app.cliadd', {
-
-            url: '/cliadd',
-            templateUrl: 'views/clients-add.html',
-            controller: 'clientsAddCtrl as vm'
-
-        })
-
-        .state('app.cliedit', {
-
-            url: '/cliedit/:id',
-            templateUrl: 'views/clients-edit.html',
-            controller: 'clientEditCtrl as vm'
-        })
-
-        
 
 
             .state('app.test', {
