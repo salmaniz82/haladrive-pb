@@ -9,15 +9,18 @@
 			$state.go('ua.login');
 		}
 
-		var allowedRoles = [1,3];
+		var allowedRoles = [4];
 		var roleID = auth.getUser().role_id;
 		roleID = parseInt(roleID);
 
 
-		if( ( auth.isLoggedIn() ) && ( roleID !== 1 && roleID !== 3) )
+		if( ( auth.isLoggedIn() ) && ( roleID !== 4) )
 		{
 			$state.go('app.logout');
 		}
+
+
+		console.log('auth app controller is activated');
 
 	});
 

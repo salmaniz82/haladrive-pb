@@ -14,11 +14,6 @@
 
         vm.creds = {};
 
-        
-        
-        
-
-
         vm.bookingModal = false;
         vm.showAuthModal = false;
         vm.modalType = 'login';
@@ -26,6 +21,15 @@
 
 
         vm.carid = $stateParams.id;
+
+
+        vm.validateEmail = function(email)
+        {
+
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+        
+        };
 
 
         vm.lauchModal = function()
@@ -140,22 +144,86 @@
 
         };
 
+        vm.nu = {};
+
+
+        vm.doRegister = function()
+        {
+            var error = 0;
+
+            if(Object.keys(vm.nu).length != 5)
+            {
+
+                console.log('Cannot proceed with incomplete information');
+                error ++;
+
+            }
+
+            else if(vm.nu.password && vm.nu.password !=  vm.nu.cpassword)
+            {
+                console.log('password not macthed');
+                error ++;
+            }
+            else if (vm.nu.civilno.length != 12)
+            {
+                error ++;
+                console.log('civil id lenght is not 12');
+                
+            }
+
+            else if (!vm.validateEmail(vm.nu.email))
+            {
+                error ++;
+                console.log('Please provide valid email address');
+            }
+
+
+            else if (error == 0 && Object.keys(vm.nu).length == 5 )
+            {
+                /*
+                
+                data url 
+                data to push 
+
+                */
+
+                var registerUrl = API_URL+'/api/consumer/register';
+
+
+                $http({
+                method: 'POST',
+                url:  registerUrl,
+                data: vm.nu
+                }).then(function(response){
+                    
+                    console.log('registration done');
+
+                    console.log(response.data.message);
+                    vm.modalType = 'login';
 
 
 
 
+                }, function(response) {
 
+                       console.log(response.data.message);
+
+                       console.log('registration failed');
+
+                });
+
+            }
+
+
+
+        };
 
 
         var targetUrl = API_URL+'/api/vehicles/'+vm.carid;
-
-        
-
-        
+      
 
         angular.element($window).unbind('scroll');
         angular.element($window).unbind('resize');
-
 
             var tabHeader =  angular.element('.CarProfileDetails__tab');
             var tabSection =  angular.element('.CarProfileDetails__section');

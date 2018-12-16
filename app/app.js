@@ -14,7 +14,7 @@
 
 
 
-angular.module('haladrive').run(['$rootScope','$state', function ($rootScope, $state) {
+angular.module('haladrive').run(['$rootScope','$state', function ($rootScope, $state, $window) {
 
     $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams, options, $window) {
 

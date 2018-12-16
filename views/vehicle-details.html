@@ -1,4 +1,3 @@
-<p>{{vm.bd}}</p>
 <div id="page-node">
     <div class="CarProfileV2__root">
         <div class="SiteChromeHeader__root ">
@@ -80,22 +79,17 @@
                         <div class="TestDriveBookingFlow__root"><div class="TestDriveBookingFlow__form-wrapper">
                             <div class="TestDriveBookingFlow__form-container-2"><div>
                                 <div class="SchedulingForm2__root"><div class="SchedulingForm2__primary-content">
-                                    <div class="LocationAndTimeForm__root"><h2 class="SchedulingForm2__primary-header"><span><!-- react-text: 1173 -->Pick your desire <!-- /react-text --><span class="NoWrap__root">booking date and time</span></span></h2><div class="LocationAndTimeForm__come-to-us-message"><a>Come to us</a> and we‘ll make it breeze<!-- /react-text --></div>
+                                    <div class="LocationAndTimeForm__root"><h2 class="SchedulingForm2__primary-header"><span>Pick your desire<span class="NoWrap__root">booking date and time</span></span></h2><div class="LocationAndTimeForm__come-to-us-message"><a>Come to us</a> and we‘ll make it breeze</div>
 
-                        <form class="ModelForm__root LocationAndTimeForm__address-model-form">
-
+                                <form class="ModelForm__root LocationAndTimeForm__address-model-form">
 
                             <div>
 
                                 <div class="LocationAndTimeForm__date-time-row"><div class="LocationAndTimeForm__date-time-column">
 
-
                                 <div class="DateDropdown__root">
-
                                     <input type="text" name="startDate" datepicker ng-model="vm.bd.sDate" style="width: 100%; border: none; outline: none" mesage="hello me">
-
                                 </div>
-
 
                             </div>
 
@@ -160,16 +154,12 @@
                <div class="AccountFormContainer__form-container">
                   <form class="ModelForm__root">
                      <div class="ModelFormInput__root">
-                        <label class="ModelFormInput__label" for="ModelFormInput__email">
-                           Email
-                        </label>
+                        <label class="ModelFormInput__label" for="ModelFormInput__email">Email</label>
                         <input type="email" id="ModelFormInput__email" name="email" value="" placeholder="Email" class="ModelFormInput__input" ng-model="vm.creds.email">
                         <div class="ModelFormInput__error ModelFormInput__email-error"></div>
                      </div>
                      <div class="ModelFormInput__root">
-                        <label class="ModelFormInput__label" for="ModelFormInput__password">
-                           Password
-                        </label>
+                        <label class="ModelFormInput__label" for="ModelFormInput__password">Password</label>
                         <input type="password" id="ModelFormInput__password" name="password" value="" placeholder="Password" class="ModelFormInput__input"
                         ng-model="vm.creds.password"
                         >
@@ -184,7 +174,9 @@
                      <div class="ContentDividerLine__content">or</div>
                      <div class="ContentDividerLine__line ContentDividerLine__line-flex"></div>
                   </div>
-                  <button class="AccountFormContainer-button Button__root Button__color-red Button__size-medium Button__weight-normal Button__full-width Button__inverted-colors" type="button" ng-click="vm.modalType = 'register'"><span class="Button__content">Create an account</span></button>
+                  <button class="AccountFormContainer-button Button__root Button__color-red Button__size-medium Button__weight-normal Button__full-width Button__inverted-colors" type="button" ng-click="vm.modalType = 'register'">
+                    <span class="Button__content">Create an account</span>
+                  </button>
                </div>
 
             </div><!-- modal_body_content -->
@@ -195,24 +187,54 @@
                   <div class="AccountFormContainer__header">Create an account</div>
                   <div class="AccountFormContainer__form-container">
                      <form class="ModelForm__root">
+
+
+                      <div class="ModelFormInput__root">
+                           <label class="ModelFormInput__label" for="ModelFormInput__name">Name</label>
+                           <input type="text" id="ModelFormInput__name" name="name" value="" placeholder="Name" class="ModelFormInput__input"
+                           ng-model="vm.nu.name"
+                           >
+                           <div class="ModelFormInput__error ModelFormInput__email-error">this is error text</div>
+                        </div>
+
+
+
+
                         <div class="ModelFormInput__root">
-                           <label class="ModelFormInput__label" for="ModelFormInput__email">
-                              <!-- react-text: 2292 -->Email<!-- /react-text -->
-                           </label>
+                           <label class="ModelFormInput__label" for="ModelFormInput__email">Email</label>
                            <input type="email" id="ModelFormInput__email" name="email" value="" placeholder="Email" class="ModelFormInput__input"
-                           ng-model="vm.creds.email"
+                           ng-model="vm.nu.email"
                            >
                            <div class="ModelFormInput__error ModelFormInput__email-error"></div>
                         </div>
+
                         <div class="ModelFormInput__root">
-                           <label class="ModelFormInput__label" for="ModelFormInput__password">
-                              <!-- react-text: 2297 -->Password<!-- /react-text -->
-                           </label>
+                           <label class="ModelFormInput__label" for="ModelFormInput__civilno">Civil No</label>
+                           <input type="text" id="ModelFormInput__civilno" name="civilno" value="" placeholder="Civil No" class="ModelFormInput__input"
+                           ng-model="vm.nu.civilno"
+                           >
+                           <div class="ModelFormInput__error ModelFormInput__email-error"></div>
+                        </div>
+
+
+
+                        <div class="ModelFormInput__root">
+                           <label class="ModelFormInput__label" for="ModelFormInput__password">Password</label>
                            <input type="password" id="ModelFormInput__password" name="password" value="" placeholder="Password" class="ModelFormInput__input"
-                           ng-model="vm.creds.password"
+                           ng-model="vm.nu.password"
                            >
                            <div class="ModelFormInput__error ModelFormInput__password-error"></div>
                         </div>
+
+                        <div class="ModelFormInput__root">
+                           <label class="ModelFormInput__label" for="ModelFormInput__password">Confirm Password</label>
+                           <input type="password" id="ModelFormInput__password" name="password" value="" placeholder="Confirm Password" class="ModelFormInput__input"
+                           ng-model="vm.nu.cpassword"
+                           >
+                           <div class="ModelFormInput__error ModelFormInput__password-error"></div>
+                        </div>
+
+
                         <div class="TermsAcceptanceCheckbox__terms-checkbox ModelFormCheckbox__root" tabindex="0">
                            <input type="checkbox" id="ModelFormCheckbox__terms" name="terms" placeholder="[object Object]" class="ModelFormCheckbox__input" value="on">
                            <label class="ModelFormCheckbox__label ModelFormInput__label-show ModelFormInput__label" for="ModelFormCheckbox__terms">
@@ -225,7 +247,7 @@
                            </label>
                            <div class="ModelFormInput__error ModelFormInput__terms-error"></div>
                         </div>
-                        <button class="AccountFormContainer-button Button__root Button__color-red Button__size-medium Button__weight-normal Button__full-width" type="submit"><span class="Button__content">Sign up</span></button>
+                        <button class="AccountFormContainer-button Button__root Button__color-red Button__size-medium Button__weight-normal Button__full-width"><span class="Button__content" ng-click="vm.doRegister()">Sign up</span></button>
                      </form>
                      <div class="ContentDividerLine__root">
                         <div class="ContentDividerLine__line ContentDividerLine__line-flex"></div>

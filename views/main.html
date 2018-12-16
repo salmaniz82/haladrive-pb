@@ -1,0 +1,53 @@
+<div id="page-node">
+   <div data-reactroot="" class="MyDashboardPage__root MyDashboardBuyingPage__root">
+      <div class="MyDashboardHeader__root">
+         <div class="Row__root MyDashboardHeader__tabs">
+            <div class="Column__root MyDashboardHeader__container MyDashboardHeader__tab" style="flex: 1 1 0%;">
+               <a class="MyDashboardAccountHeader__shift-logo" href="/"></a>
+               <div class="MyDashboardHeader__nav-items">
+                  <a class="HeaderLink__root" ui-sref-active="HeaderLink__active" ui-sref="app.bookings">
+                     <span class="HoverUnderline__root HeaderLink__hover">
+                        Bookings
+                        <div class="HoverUnderline__underline"></div>
+                     </span>
+                  </a>
+                  <a ui-sref-active="HeaderLink__active" class="HeaderLink__root" href="/my-dashboard/selling">
+                     <span class="HoverUnderline__root HeaderLink__hover">
+                        Selling
+                        <div class="HoverUnderline__underline"></div>
+                     </span>
+                  </a>
+                  <a ui-sref-active="HeaderLink__active" class="HeaderLink__root" href="/my-dashboard/appointments">
+                     <span class="HoverUnderline__root HeaderLink__hover">
+                        Appointments
+                        <div class="HoverUnderline__underline"></div>
+                     </span>
+                  </a>
+                  <a ui-sref-active="HeaderLink__active" class="HeaderLink__root" ui-sref="app.profile">
+                     <span class="HoverUnderline__root HeaderLink__hover">
+                        Profile
+                        <div class="HoverUnderline__underline"></div>
+                     </span>
+                  </a>
+               </div>
+            </div>
+         </div>
+         <span></span>
+      </div>
+      <div>
+         <div>
+            <div class="MyDashboardNoActivity__root">
+               <div class="AccountDashboard__divider"></div>
+               <div class="MyDashboardNoActivity__container">
+
+                  <div ui-view></div>
+
+               </div>
+            </div>
+         </div>
+      </div>
+      
+      <div class="AccountDashboardError__root"></div>
+   </div>
+</div>
+

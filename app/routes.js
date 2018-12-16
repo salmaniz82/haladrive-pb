@@ -22,7 +22,7 @@
 
         })
 
-        .state('profile', {
+        .state('app.profile', {
 
             url: '/profile',
             templateUrl: 'views/profile.html'
@@ -36,20 +36,14 @@
             controller: 'carsCtrl as vm'
         })
 
+        
+
 
         .state('details', {
 
             url: '/car-details/:id',
             templateUrl: 'views/vehicle-details.html',
             controller: 'vehicleDetailsCtrl as vm'
-            
-        })
-
-        .state('modal', {
-
-            url: '/modal',
-            templateUrl: 'views/modalbase.html',
-            controller: 'modalCtrl as vm'
             
         })
 
@@ -76,10 +70,21 @@
 
 
         .state('app', {
-            templateUrl: 'views/templates/main.html',
             controller: 'authAppCtrl',
+            templateUrl: 'views/main.html',
             abstract: true
+        })
 
+        .state('app.child', {
+            url: '/child',
+            templateUrl: 'views/child.html'
+        })
+
+
+        .state('app.bookings', {     
+            url: '/bookings',
+            templateUrl: 'views/bookings.html',
+            controller: 'bookingCtrl as vm'
         })
 
         .state('app.logout', {
@@ -159,12 +164,7 @@
             controller: 'clientEditCtrl as vm'
         })
 
-        .state('app.bookings', {
-            
-            url: '/bookings',
-            templateUrl: 'views/bookings.html',
-            controller: 'bookingCtrl as vm'
-        })
+        
 
 
             .state('app.test', {

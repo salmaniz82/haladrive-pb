@@ -201,11 +201,6 @@
 
         vm.getApiGlobal();
 
-
-
-
-
-
     });
 
 
