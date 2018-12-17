@@ -43,14 +43,17 @@
                                 <li class="SiteChromeHeader__navigation-link SiteChromeHeader__phone"><a class="SiteChromeHeader__navigation-link-anchor" href="tel:+03343533668"><span class="SiteChromeHeader__navigation-text">855-744-3801</span></a></li>
                             </ul>
                         </li>
-                        <li class="SiteChromeHeader__sign-in SiteChromeHeader__navigation-link" id="desk-sign"><a class="SiteChromeHeader__navigation-text" href="#">Sign in</a></li>
+                        <li class="SiteChromeHeader__sign-in SiteChromeHeader__navigation-link" id="desk-sign">
+                            <a class="SiteChromeHeader__navigation-text" href="#">Sign in A</a>
+                        </li>
                     </ul>
-                    <a class="SiteChromeHeader__mobile-nav-toggle" ng-class="{'active': isMenuActive}" href="#" ng-click="isMenuActive != isMenuActive">
+
+                    <a class="SiteChromeHeader__mobile-nav-toggle" href="#" ng-click="handleMenuToggle()">
                         <span class="SiteChromeHeader__nav-toggle-span"></span>
                     </a>
 
                     <ul class="SiteChromeHeader__navigation" style="display: none;">
-                        <li class="SiteChromeHeader__sign-in SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-text" href="#">Sign in</a></li>
+                        <li class="SiteChromeHeader__sign-in SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-text" href="#">Sign in B</a></li>
                         <li class="SiteChromeHeader__navigation-link SiteChromeHeader__car-listings"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text SiteChromeHeader__active-link">Browse cars</span></a></li>
                         <li class="SiteChromeHeader__navigation-link SiteChromeHeader__selling">
                             <a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Sell your car</span></a></li>

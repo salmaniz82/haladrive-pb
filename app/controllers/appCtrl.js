@@ -9,6 +9,41 @@
 
         $scope.lang = langSer.init();
 
+        $scope.isMenuActive = false;
+
+
+        $scope.handleMenuToggle = function() {
+
+            if($scope.isMenuActive == true) 
+            {
+                $scope.isMenuActive = false;   
+            }
+            else {
+                $scope.isMenuActive = true;
+            }
+            console.log($scope.isMenuActive);
+
+
+            if($scope.isMenuActive)
+            {
+                // remove classes to close
+                angular.element(".SiteChromeHeader__mobile-nav-toggle").removeClass('SiteChromeHeader__nav-toggle-active');
+                angular.element("#topmenu").removeClass('SiteChromeHeader__open');
+                angular.element("body").removeClass('modal-open');
+            }
+            else
+            {
+                // add classes to open
+
+                angular.element(".SiteChromeHeader__mobile-nav-toggle").addClass('SiteChromeHeader__nav-toggle-active');
+                angular.element("#topmenu").addClass('SiteChromeHeader__open');
+                angular.element("body").addClass('modal-open');
+                
+            }
+
+        };
+
+
         $scope.filterModelState = false;
 
         $scope.bodyFilterModelClass = function()

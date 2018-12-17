@@ -154,7 +154,13 @@ width: 30px;
     background-image: url(http://haladrive.com/images/haladrive-logo.svg) !important;
 }
 
-#desk-sign {display: none;}
+#desk-sign {
+
+    /*
+
+    display: none;
+    */
+}
 
 .SiteChromeHeader__open #desk-sign {display: inline-block;}
 
