@@ -43,9 +43,17 @@
                                 <li class="SiteChromeHeader__navigation-link SiteChromeHeader__phone"><a class="SiteChromeHeader__navigation-link-anchor" href="tel:+03343533668"><span class="SiteChromeHeader__navigation-text">855-744-3801</span></a></li>
                             </ul>
                         </li>
-                        <li class="SiteChromeHeader__sign-in SiteChromeHeader__navigation-link" id="desk-sign">
+                        <li ng-if="!root.isLoggedIn()" class="SiteChromeHeader__sign-in SiteChromeHeader__navigation-link" id="desk-sign">
                             <a class="SiteChromeHeader__navigation-text" href="#">Sign in A</a>
                         </li>
+
+                        <li ng-if="root.isLoggedIn()" class="SiteChromeHeader__sign-in SiteChromeHeader__navigation-link">
+                            <a class="SiteChromeHeader__navigation-text" href="#">{{root.authUser().email}}</a>
+                        </li>
+
+
+
+
                     </ul>
 
                     <a class="SiteChromeHeader__mobile-nav-toggle" href="#" ng-click="handleMenuToggle()">
@@ -87,7 +95,18 @@
                     <div class="CarListingsLeader__content">
                         <div class="CarListingsLeader__headline">
                             <div>
-                                <h1><span class="CarListingsLeader__headline-text">Simplified car rental</span></h1>
+                                <h1><span class="CarListingsLeader__headline-text">
+                                Simplified car rental
+
+                                <span ng-if="root.isLoggedIn()">
+                                    
+
+                                    {{root.authUser().name}}
+
+
+                                </span>
+
+                            </span></h1>
                                 <p>
 
                                     
@@ -420,5 +439,6 @@
     <!-- contents ends -->
 
 </div>
+
 
 

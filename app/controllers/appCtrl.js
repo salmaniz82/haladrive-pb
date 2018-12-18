@@ -126,6 +126,9 @@
         };
 
 
+        vm.globalMessage = "must be available to all the users";
+
+
 
 		vm.isLoggedIn = function()
 		{
