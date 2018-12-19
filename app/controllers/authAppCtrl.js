@@ -6,7 +6,7 @@
 
 		if(!auth.isLoggedIn() )
 		{
-			$state.go('home');
+			$state.go('pub.list');
 		}
 
 		var allowedRoles = [4];

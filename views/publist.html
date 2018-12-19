@@ -1,93 +1,3 @@
-<div id="page-node">
-    <div id="cars-page">
-        <div class="SiteChromeHeader__root">
-            
-
-            <!-- header -->
-
-            <header data-pathname="/cars/san-francisco" class="SiteChromeHeader__background SiteChromeHeader__car-listings-active cars-page-active"
-                    id="topmenu">
-                <nav class="SiteChromeHeader__nav">
-                    <a class="SiteChromeHeader__default-logo SiteChromeHeader__shift-logo" href="/"></a>
-
-                    <div class="region-select-wrapper shift-select-container white SiteChromeHeader__region-select-container">
-                        <span class="region-select white shift-select-container">
-
-                        </span>
-                    </div>
-                    <ul class="SiteChromeHeader__navigation SiteChromeHeader__hidden">
-                        <li class="SiteChromeHeader__favorites-heart-li">
-                            <a class="SiteChromeHeader__favorites-heart CarFavoritesHeaderHeart__root CarFavoritesHeaderHeart__no-favorites" href="#">
-                                <div class="CarFavoritesHeaderHeart__heart-container">
-                                    <div class="CarFavoritesHeaderHeart__heart"></div>
-                                </div>
-                                <div class="CarFavoritesHeaderHeart__number-container">
-                                    <div class="CarFavoritesHeaderHeart__number">0</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="SiteChromeHeader__navigation-link SiteChromeHeader__car-listings"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text SiteChromeHeader__active-link">Browse cars</span></a></li>
-                        <li class="SiteChromeHeader__navigation-link SiteChromeHeader__selling"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Sell your car</span></a></li>
-                        <li class="SiteChromeHeader__navigation-link SiteChromeHeader__financing"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Financing</span></a></li>
-                        <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">How it works</span></a></li>
-                        <li class="SiteChromeHeader__more-li">
-                            <span class="SiteChromeHeader__navigation-text SiteChromeHeader__more-link" id="more-nav-link" ng-click="moreLinkEnabled = !moreLinkEnabled">More</span>
-                            <ul class="SiteChromeHeader__more-nav" ng-class="{'SiteChromeHeader__hidden': !moreLinkEnabled}">
-                                <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">About Haladrive</span></a></li>
-                                <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Get the Mobile App</span></a></li>
-                                <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Car Loan Calculator</span></a></li>
-                                <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Blog</span></a></li>
-                                <li class="SiteChromeHeader__navigation-link SiteChromeHeader__enthusiasts"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Concierges</span></a></li>
-                                <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Careers</span></a></li>
-                                <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Support</span></a></li>
-                                <li class="SiteChromeHeader__navigation-link SiteChromeHeader__phone"><a class="SiteChromeHeader__navigation-link-anchor" href="tel:+03343533668"><span class="SiteChromeHeader__navigation-text">855-744-3801</span></a></li>
-                            </ul>
-                        </li>
-                        <li ng-if="!root.isLoggedIn()" class="SiteChromeHeader__sign-in SiteChromeHeader__navigation-link" id="desk-sign">
-                            <a class="SiteChromeHeader__navigation-text" href="#">Sign in A</a>
-                        </li>
-
-                        <li ng-if="root.isLoggedIn()" class="SiteChromeHeader__sign-in SiteChromeHeader__navigation-link">
-                            <a class="SiteChromeHeader__navigation-text" href="#">{{root.authUser().email}}</a>
-                        </li>
-
-
-
-
-                    </ul>
-
-                    <a class="SiteChromeHeader__mobile-nav-toggle" href="#" ng-click="handleMenuToggle()">
-                        <span class="SiteChromeHeader__nav-toggle-span"></span>
-                    </a>
-
-                    <ul class="SiteChromeHeader__navigation" style="display: none;">
-                        <li class="SiteChromeHeader__sign-in SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-text" href="#">Sign in B</a></li>
-                        <li class="SiteChromeHeader__navigation-link SiteChromeHeader__car-listings"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text SiteChromeHeader__active-link">Browse cars</span></a></li>
-                        <li class="SiteChromeHeader__navigation-link SiteChromeHeader__selling">
-                            <a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Sell your car</span></a></li>
-                        <li class="SiteChromeHeader__navigation-link SiteChromeHeader__financing"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Financing</span></a></li>
-                        <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="/buy"><span class="SiteChromeHeader__navigation-text">How Shift works</span></a></li>
-                        <li class="SiteChromeHeader__more-li"><span class="SiteChromeHeader__navigation-text SiteChromeHeader__more-link">More</span><ul class="SiteChromeHeader__more-nav">
-                            <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">About Haladrive</span></a></li>
-                            <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Get the Mobile App</span></a></li>
-                            <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Car Loan Calculator</span></a></li>
-                            <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Blog</span></a>
-                            </li>
-                            <li class="SiteChromeHeader__navigation-link SiteChromeHeader__enthusiasts"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Concierges</span></a></li>
-                            <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Careers</span></a></li>
-                            <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Support</span></a></li>
-                            <li class="SiteChromeHeader__navigation-link SiteChromeHeader__phone"><a class="SiteChromeHeader__navigation-link-anchor" href="tel:+18557443801"><span class="SiteChromeHeader__navigation-text">111-111-1111</span></a></li>
-                        </ul></li></ul>
-
-                </nav>
-            </header>
-
-
-
-            <!-- header end -->
-
-
-            <!-- intro content start -->
 
 
             <div id="page-container" class="cars-page-active">
@@ -95,24 +5,9 @@
                     <div class="CarListingsLeader__content">
                         <div class="CarListingsLeader__headline">
                             <div>
-                                <h1><span class="CarListingsLeader__headline-text">
-                                Simplified car rental
-
-                                <span ng-if="root.isLoggedIn()">
-                                    
-
-                                    {{root.authUser().name}}
-
-
-                                </span>
-
-                            </span></h1>
+                                <h1><span class="CarListingsLeader__headline-text">Simplified car rental</span></h1>
                                 <p>
-
-                                    
                                     <nobr>Great cars. Better prices.</nobr>
-                                    <!-- react-text: 75 -->
-                                    <!-- /react-text -->
                                     <nobr>Booking Simplified.</nobr>
                                 </p>
                             </div>
@@ -120,30 +15,14 @@
                                 <div class="CarSearchForm__root CarListingsLeader__header-search">
                                     <!-- search field and a button was removed from ehre -->
                                 </div>
-
                             </div>
                         </div>
                     </div>
-
-
                 </section>
 
-
                 <!-- intro content ends -->
-
-
-
-
                 <div></div>
             </div>
-
-
-
-
-
-    
-
-
 
                 <div class="CarBrowser__container"><span>
     <div class="CarBrowser__root CarBrowser__has-modal-sidebar" ng-class="{'CarBrowser__modal-sidebar-open': filterModelState}">
@@ -387,7 +266,7 @@
                 desktop: CarBrowserCarCard__root CarBrowserCarCard__large CarBrowserCard__root CarBrowserCard__large 
                 small Mobile : CarBrowserCarCard__root CarBrowserCard__root CarBrowserCard__small
                 -->
-                <a ng-class="{'CarBrowserCarCard__root CarBrowserCard__root CarBrowserCard__small' : true}" ng-repeat="car in vm.cars.v" ui-sref="details({id: car.id})">
+                <a ng-class="{'CarBrowserCarCard__root CarBrowserCard__root CarBrowserCard__small' : true}" ng-repeat="car in vm.cars.v" ui-sref="pub.details({id: car.id})">
                     <div class="CarBrowserCarCard__favorite-heart CarFavoriteHeart__root">
                         <div class="CarFavoriteHeart__icon-container">
                             <div class="CarFavoriteHeart__icon"></div>
@@ -432,13 +311,7 @@
 </span>
                 </div>
             
-        </div>
-    </div>
-
-
-    <!-- contents ends -->
-
-</div>
+      
 
 
 

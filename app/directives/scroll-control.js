@@ -12,6 +12,8 @@ app.directive("scroll", function ($window) {
             /*993 till when we have nav bar visible*/
             if(clientWidth >=993)
             {
+                console.log('scroll manager is working');
+
                 var scroll = $(window).scrollTop();
                 scroll += 50;
                 // on desktop we need to attach the carbrowser just below the header so we are adding a +50 to the scroll position
@@ -73,11 +75,8 @@ app.directive("scroll", function ($window) {
                     resizeManager = function($window) 
                     {
 
-                        console.log('working from resize content');
-
                         
 
-                        console.log($window);
                         $height = $(window).height();
                         // $wd = window.innerWidth;
 
@@ -92,7 +91,7 @@ app.directive("scroll", function ($window) {
 
                         if($wd <= 768)
                         {
-                            console.log('do mobile adjustments');
+                            
 
                             $('.CarBrowserCarCard__root').removeClass('CarBrowserCarCard__large CarBrowserCard__root CarBrowserCard__large')
                             $('.CarBrowserCarCard__root').addClass('CarBrowserCard__root CarBrowserCard__small');

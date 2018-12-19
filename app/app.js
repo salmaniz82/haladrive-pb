@@ -18,12 +18,16 @@ angular.module('haladrive').run(['$rootScope','$state', function ($rootScope, $s
 
     $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams, options, $window) {
 
+      /*
+
       if($state.name != 'cars')
       {
         document.getElementsByTagName("body")[0].removeAttribute("scroll");
         angular.element($window).unbind('scroll');
         angular.element($window).unbind('resize');
       }
+
+      */
 
         
 
@@ -33,12 +37,16 @@ angular.module('haladrive').run(['$rootScope','$state', function ($rootScope, $s
     $rootScope.$on('$stateChangeSuccess', function(e, toState, toParams, fromState, fromParams) {
 
 
+      /*
+
       if($state.name != 'cars')
       {
         document.getElementsByTagName("body")[0].removeAttribute("scroll");
         angular.element($window).unbind('scroll');
         angular.element($window).unbind('resize');
       }
+
+      */
 
         
     });

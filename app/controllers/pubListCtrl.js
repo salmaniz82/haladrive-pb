@@ -1,10 +1,14 @@
 (function() {
 
-    angular.module('haladrive').controller('exampleCtrl', function(API_URL, $http, $scope, $timeout, $rootScope, $window){
+    angular.module('haladrive').controller('pubListCtrl', function(API_URL, $http, $scope, $timeout, $rootScope, $window){
 
 
         var vm = this;
         vm.cars = false;
+
+
+        $scope.$parent.pub.footer = false;
+        $scope.$parent.pub.pageId = 'browse';
 
         
 

@@ -16,18 +16,28 @@
         $stateProvider
 
 
-
-        .state('home', {
-            url: '/',
-            templateUrl: 'views/cars.html',
-            controller: 'carsCtrl as vm'
+        .state('pub', {
+            controller: 'pubCtrl as pub',
+            templateUrl: 'views/templates/public.html',
+            abstract: true
         })
 
-        .state('details', {
-            url: '/car-details/:id',
-            templateUrl: 'views/vehicle-details.html',
-            controller: 'vehicleDetailsCtrl as vm'           
+
+        .state('pub.list', {
+            url : '/',
+            controller : 'pubListCtrl as vm',
+            templateUrl : 'views/publist.html'
+
         })
+
+
+        .state('pub.details', {
+            url : '/details/:id',
+            controller : 'pubDetailsCtrl as vm',
+            templateUrl : 'views/pubdetails.html'
+
+        })
+
 
         .state('app', {
             controller: 'authAppCtrl',
@@ -36,10 +46,14 @@
         })
 
         .state('app.profile', {
-
             url: '/profile',
             templateUrl: 'views/profile.html'
+        })
 
+
+        .state('app.dashboard', {
+            url: '/dashboard',
+            templateUrl: 'views/dashboard.html'
         })
 
         .state('app.bookings', {     
@@ -73,19 +87,6 @@
             url: '/register',
             templateUrl: 'views/register.html'
 
-        })
-
-        .state('app.dashboard', {
-            url: '/dashboard',
-            templateUrl: 'views/dashboard.html',
-            controller: 'dashboardCtrl as vm'
-        })
-
-
-
-        .state('app.settings', {
-            url: '/settings',
-            templateUrl: 'views/settings.html'
         })
 
 

@@ -207,7 +207,9 @@ width: 30px;
 
 
 .SiteChromeHeader__inverted-colors .SiteChromeHeader__background.SiteChromeHeader__detached {
+    /*
     background-color: #424242;
+    */
 }
 
 .SiteChromeHeader__inverted-colors .SiteChromeHeader__shift-logo {
