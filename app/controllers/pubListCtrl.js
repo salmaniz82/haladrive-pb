@@ -1,14 +1,22 @@
 (function() {
 
-    angular.module('haladrive').controller('pubListCtrl', function(API_URL, $http, $scope, $timeout, $rootScope, $window){
+    angular.module('haladrive').controller('pubListCtrl', function(API_URL, $http, $scope, $timeout, $rootScope, $window, $timeout){
 
 
         var vm = this;
         vm.cars = false;
 
-
         $scope.$parent.pub.footer = false;
         $scope.$parent.pub.pageId = 'browse';
+
+        $timeout(function() {
+
+            $window.dispatchEvent(new Event("resize"));
+
+            console.log('trigger resize fake');
+
+
+        }, 100);
 
         
 

@@ -98,7 +98,7 @@
     appearance: none;
     width: 100%; /* Full-width */
     height: 3px;
-    background: #737373;
+    background: #1b1a1a;
     outline: none; /* Remove outline */
     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
@@ -151,7 +151,7 @@ width: 30px;
 
 
 .SiteChromeHeader__shift-logo {
-    background-image: url(http://haladrive.com/images/haladrive-logo.svg) !important;
+    background-image: url(../images/haladrive-logo.svg) !important;
 }
 
 #desk-sign {
@@ -213,7 +213,7 @@ width: 30px;
 }
 
 .SiteChromeHeader__inverted-colors .SiteChromeHeader__shift-logo {
-    background-image: url(http://haladrive.com/images/haladrive-logo.svg) !important;
+    background-image: url(../images/haladrive-logo-inverted.svg) !important;
     max-width: initial;
     height: 30px;
     width: 99px;
@@ -237,7 +237,7 @@ body.Modal__is-open .show-on-modal-open > chosen-container {display: block;}
 
 
 .shift-logo {
-    background: url(http://haladrive.com/images/haladrive-logo.svg) no-repeat top left !important;
+    background: url(../images/haladrive-logo.svg) no-repeat top left !important;
     width: 220px;
     height: 65px;
 }
@@ -306,4 +306,39 @@ select.chosen-with-icon + .chosen-container.chosen-container-multi .chosen-choic
 }
 
 }
+
+
+
+.MyDashboardAccountHeader__shift-logo {
+    background: url(../images/haladrive-logo-inverted.svg) no-repeat top left !important;
+    background-size: 110px 32.5px !important;
+    width: 110px;
+    height: 32.5px;
+
+}
+
+.MyDashboardHeader__mobile-nav-icon {
+        display: none;
+    }
+
+
+@media (max-width: 640px) {
+
+    .MyDashboardHeader__mobile-nav-icon {
+
+        display: block;
+
+    }
+
+    .MyDashboardHeader__nav-items {
+        display: none;
+    }
+
+
+    .MyDashboardHeader__nav-items.mobileMenuOPen{
+        display: block;
+    }
+
+}
+
 

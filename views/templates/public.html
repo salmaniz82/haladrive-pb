@@ -28,6 +28,7 @@
          <header class="SiteChromeHeader__background" 
 
           ng-class="{
+
           'SiteChromeHeader__car-listings-active cars-page-active': pub.pageId == 'browse',
 
 
@@ -54,37 +55,46 @@
                   </li>
                   <li class="SiteChromeHeader__navigation-link SiteChromeHeader__car-listings">
                      <a class="SiteChromeHeader__navigation-link-anchor" ui-sref="pub.list()">
-                     <span class="SiteChromeHeader__navigation-text SiteChromeHeader__active-link">Browse cars</span>
+                     <span class="SiteChromeHeader__navigation-text">Browse cars</span>
                   </a></li>
                   <li class="SiteChromeHeader__navigation-link SiteChromeHeader__selling"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Sell your car</span></a></li>
                   <li class="SiteChromeHeader__navigation-link SiteChromeHeader__financing"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Financing</span></a></li>
                   <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">How it works</span></a></li>
-                  <li class="SiteChromeHeader__more-li">
-                     <span class="SiteChromeHeader__navigation-text SiteChromeHeader__more-link" id="more-nav-link" ng-click="moreLinkEnabled = !moreLinkEnabled">More</span>
-                     <ul class="SiteChromeHeader__more-nav" ng-class="{'SiteChromeHeader__hidden': !moreLinkEnabled}">
-                        <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">About Haladrive</span></a></li>
-                        <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Get the Mobile App</span></a></li>
-                        <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Car Loan Calculator</span></a></li>
-                        <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Blog</span></a></li>
-                        <li class="SiteChromeHeader__navigation-link SiteChromeHeader__enthusiasts"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Concierges</span></a></li>
-                        <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Careers</span></a></li>
-                        <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Support</span></a></li>
-                        <li class="SiteChromeHeader__navigation-link SiteChromeHeader__phone"><a class="SiteChromeHeader__navigation-link-anchor" href="tel:+03343533668"><span class="SiteChromeHeader__navigation-text">855-744-3801</span></a></li>
-                     </ul>
-                  </li>
+                  
                   <li ng-if="!root.isLoggedIn()" class="SiteChromeHeader__sign-in SiteChromeHeader__navigation-link" id="desk-sign">
-                     <a class="SiteChromeHeader__navigation-text" href="#" ng-click="pub.showAuthModal = true">Sign in A</a>
+                     <a class="SiteChromeHeader__navigation-text" href="#" ng-click="pub.showAuthModal = true">Sign in</a>
                   </li>
+                  <!--
                   <li ng-if="root.isLoggedIn()" class="SiteChromeHeader__sign-in SiteChromeHeader__navigation-link">
                      <a class="SiteChromeHeader__navigation-text" ui-sref="app.dashboard()">{{root.authUser().email}}</a>
+                 </li>
+                  -->
+
+                  <li class="SiteChromeHeader__more-li " ng-if="root.isLoggedIn()">
+                     <span class="SiteChromeHeader__navigation-text SiteChromeHeader__more-link" id="more-nav-link" ng-click="moreLinkEnabled = !moreLinkEnabled">
+                     {{root.authUser().email}}</span>
+                     <ul class="SiteChromeHeader__more-nav" ng-class="{'SiteChromeHeader__hidden': !moreLinkEnabled}">
+                        <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" ui-sref="app.dashboard()">
+                           <span class="SiteChromeHeader__navigation-text">Dashboard</span></a></li>
+
+                           <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" ui-sref="app.profile()"><span class="SiteChromeHeader__navigation-text">Profile</span></a></li>
+                        
+                        <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" ui-sref="app.bookings()"><span class="SiteChromeHeader__navigation-text">Bookings</span></a></li>
+                        <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" ui-sref="app.invoices()"><span class="SiteChromeHeader__navigation-text">Invoices</span></a></li>
+                        <li class="SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-link-anchor" ui-sref="app.logout()"><span class="SiteChromeHeader__navigation-text">Logout</span></a></li>
+                        <li class="SiteChromeHeader__navigation-link SiteChromeHeader__phone"><a class="SiteChromeHeader__navigation-link-anchor" href="tel:+03343533668">
+                           <span class="SiteChromeHeader__navigation-text">000-000-0000</span></a></li>
+                     </ul>
                   </li>
+
+
                </ul>
                <a class="SiteChromeHeader__mobile-nav-toggle" href="#" ng-click="handleMenuToggle()">
                <span class="SiteChromeHeader__nav-toggle-span"></span>
                </a>
                <ul class="SiteChromeHeader__navigation" style="display: none;">
                   <li class="SiteChromeHeader__sign-in SiteChromeHeader__navigation-link"><a class="SiteChromeHeader__navigation-text" href="#">Sign in B</a></li>
-                  <li class="SiteChromeHeader__navigation-link SiteChromeHeader__car-listings"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text SiteChromeHeader__active-link">Browse cars</span></a></li>
+                  <li class="SiteChromeHeader__navigation-link SiteChromeHeader__car-listings"><a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Browse cars</span></a></li>
                   <li class="SiteChromeHeader__navigation-link SiteChromeHeader__selling">
                      <a class="SiteChromeHeader__navigation-link-anchor" href="#"><span class="SiteChromeHeader__navigation-text">Sell your car</span></a>
                   </li>
@@ -226,7 +236,7 @@
                               <div class="ModelFormCheckbox__checkbox Checkbox__root Checkbox__size-normal Checkbox__color-red Checkbox__bordered"></div>
                               <span class="ModelFormCheckbox__label-content">
                                  <span class="TermsAcceptanceCheckbox__terms-label">
-                                    I agree to Shift’s<a target="_blank" href="/terms">Terms of Service &amp; Privacy Policy</a>
+                                    I agree to Haladrive’s<a target="_blank" href="/terms">Terms of Service &amp; Privacy Policy</a>
                                  </span>
                               </span>
                            </label>
@@ -320,7 +330,7 @@
                             <div class="not-for-mobile">
                                 <p>Haladrive is bringing trust and simplicity to the used car market. Our goal is to turn what is universally regarded as a burdensome life event into a delightful experience.</p>
                                 <p>© iSystematic Technologies, Inc.</p>
-                                <p><a href="/terms" rel="nofollow">Terms of Service</a></p>
+                                <p><a ui-sref="pub.terms()" rel="nofollow">Terms of Service</a></p>
                             </div>
                         </div>
                         <div class="column">
@@ -328,16 +338,11 @@
                                 <div class="column not-for-mobile">
                                     <nav>
                                         <ul>
-                                            <li><a href="/cars/san-francisco">Browse cars</a></li>
-                                            <li><a href="/buy">How it works</a></li>
-                                            <li><a href="/sell-my-car">Sell your car</a></li>
-                                            <li><a href="/about">About Shift</a></li>
-                                            <li><a href="/drive-local">Drive Local</a></li>
-                                            <li><a href="/concierges">Concierges</a></li>
-                                            <li><a href="/careers">Careers</a></li>
-                                            <li><a href="https://blog.shift.com/?region=us/sfo">Blog</a></li>
-                                            <li><a href="https://support.shift.com">Support</a></li>
-                                            <li><a href="/terms" rel="nofollow">Terms and Privacy</a></li>
+                                            <li><a ui-sref="pub.publist()">Browse cars</a></li>
+                                            <li><a href="#">How it works</a></li>
+                                            <li><a ui-sref="pub.about()">About Haladrive</a></li>
+                                            <li><a href="#">Support</a></li>
+                                            <li><a ui-sref="pub.terms()" rel="nofollow">Terms and Privacy</a></li>
                                         </ul>
                                     </nav>
                                 </div>

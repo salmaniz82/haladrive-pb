@@ -4,7 +4,10 @@
          <div class="Row__root MyDashboardHeader__tabs">
             <div class="Column__root MyDashboardHeader__container MyDashboardHeader__tab" style="flex: 1 1 0%;">
                <a class="MyDashboardAccountHeader__shift-logo" ui-sref="home()"></a>
-               <div class="MyDashboardHeader__nav-items">
+
+               <div class="MyDashboardHeader__mobile-nav-icon" ng-class="{'MyDashboardHeader__mobile-nav-icon-open': auApp.appMenu}" ng-click="auApp.toggleMenu()"></div>
+
+               <div class="MyDashboardHeader__nav-items" ng-class="{'mobileMenuOPen': auApp.appMenu}">
                   <a class="HeaderLink__root" ui-sref-active="HeaderLink__active" ui-sref="app.bookings">
                      <span class="HoverUnderline__root HeaderLink__hover">
                         Bookings

@@ -38,9 +38,22 @@
 
         })
 
+        .state('pub.terms', {
+            url : '/terms',
+            templateUrl : 'views/terms.html'
+
+        })
+
+        .state('pub.notify', {
+            url : '/notify',
+            controller : 'notifyCtrl as vm',
+            templateUrl : 'views/notify.html'
+
+        })
+
 
         .state('app', {
-            controller: 'authAppCtrl',
+            controller: 'authAppCtrl as auApp',
             templateUrl: 'views/main.html',
             abstract: true
         })

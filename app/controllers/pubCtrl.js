@@ -1,6 +1,6 @@
 (function() {
 
-    angular.module('haladrive').controller('pubCtrl', function(API_URL, auth, $http){
+    angular.module('haladrive').controller('pubCtrl', function(API_URL, auth, $http, $scope){
         var vm = this;
         vm.footer = true;
 
@@ -105,7 +105,19 @@
             {   
                 vm.loginStatus = false;
                 vm.wrongCreds = true;
-                console.log(response);
+                console.log(response.data.message);
+
+
+                var notify = {
+                        type: 'error',
+                        title: 'Authentication Failed',
+                        content: response.data.message,
+                        timeout: 3000 //time in ms
+                    };
+                    $scope.$emit('notify', notify);
+
+
+
             }
 
 
@@ -118,31 +130,34 @@
         vm.doRegister = function()
         {
             var error = 0;
+            var erroMsg = '';
+
+            console.log('do register is activated');
 
             if(Object.keys(vm.nu).length != 5)
             {
 
-                console.log('Cannot proceed with incomplete information');
+                errorMsg = 'Cannot proceed with incomplete information';
                 error ++;
 
             }
 
             else if(vm.nu.password && vm.nu.password !=  vm.nu.cpassword)
             {
-                console.log('password not macthed');
+                errorMsg = 'password not macthed';
                 error ++;
             }
             else if (vm.nu.civilno.length != 12)
             {
                 error ++;
-                console.log('civil id lenght is not 12');
+                errorMsg ='civil id lenght is not 12';
                 
             }
 
             else if (!vm.validateEmail(vm.nu.email))
             {
                 error ++;
-                console.log('Please provide valid email address');
+                errorMsg = 'Please provide valid email address';
             }
 
 
@@ -162,25 +177,56 @@
                 method: 'POST',
                 url:  registerUrl,
                 data: vm.nu
-                }).then(function(response){
+                }).then(function(response){                   
+
+
+                    var notify = {
+                        type: 'success',
+                        title: 'Registraion Successful',
+                        content: response.data.message,
+                        timeout: 3000 //time in ms
+                    };
+
+                    $scope.$emit('notify', notify);
                     
-                    console.log('registration done');
-
-                    console.log(response.data.message);
+                    
                     vm.modalType = 'login';
-
-
-
 
                 }, function(response) {
 
-                       console.log(response.data.message);
+                       
 
-                       console.log('registration failed');
+                       var notify = {
+                        type: 'error',
+                        title: 'Registraion Failed',
+                        content: response.data.message,
+                        timeout: 3000 //time in ms
+                    };
+                    $scope.$emit('notify', notify);
+
+                       
 
                 });
 
             }
+
+            if(error > 0) 
+            {
+                var notify = {
+                        type: 'error',
+                        title: 'Registraion Failed',
+                        content: errorMsg,
+                        timeout: 30000 //time in ms
+                    };
+                    $scope.$emit('notify', notify);
+
+                    
+
+
+            }
+
+
+            
 
 
 

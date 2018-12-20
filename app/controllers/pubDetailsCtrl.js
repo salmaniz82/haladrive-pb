@@ -9,6 +9,10 @@
         $scope.$parent.pub.pageId = 'details';
 
 
+
+        
+
+
         var vm = this;
 
         vm.loginStatus = null;

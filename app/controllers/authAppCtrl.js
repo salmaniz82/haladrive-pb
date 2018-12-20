@@ -4,6 +4,22 @@
 
 		vm = this;
 
+
+		vm.message = "hello";
+
+		vm.appMenu = false;
+
+
+		vm.toggleMenu = function()
+		{
+
+			vm.appMenu =! vm.appMenu;
+			
+		}
+
+
+
+
 		if(!auth.isLoggedIn() )
 		{
 			$state.go('pub.list');

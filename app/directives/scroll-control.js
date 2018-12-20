@@ -87,7 +87,7 @@ app.directive("scroll", function ($window) {
 
                         console.log('$wd' + $wd);
 
-                        $('#leader').height($height);
+                      //  $('#leader').height($height);
 
                         if($wd <= 768)
                         {

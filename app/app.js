@@ -56,7 +56,7 @@ angular.module('haladrive').run(['$rootScope','$state', function ($rootScope, $s
 
       if(error == 'Un Authorized')
       {
-        $state.go('app.dashboard');
+        $state.go('app.publist');
       }
 
       e.preventDefault();
