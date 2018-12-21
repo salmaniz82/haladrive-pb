@@ -44,12 +44,15 @@
                </div>
                <ul class="SiteChromeHeader__navigation SiteChromeHeader__hidden">
                   <li class="SiteChromeHeader__favorites-heart-li">
-                     <a class="SiteChromeHeader__favorites-heart CarFavoritesHeaderHeart__root CarFavoritesHeaderHeart__no-favorites" href="#">
+                     <a class="SiteChromeHeader__favorites-heart CarFavoritesHeaderHeart__root" href="#">
+
+                        <!--
                         <div class="CarFavoritesHeaderHeart__heart-container">
                            <div class="CarFavoritesHeaderHeart__heart"></div>
                         </div>
+                     -->
                         <div class="CarFavoritesHeaderHeart__number-container">
-                           <div class="CarFavoritesHeaderHeart__number">0</div>
+                           <div class="CarFavoritesHeaderHeart__number" ng-click="switchLang()">{{langLabel()}}</div>
                         </div>
                      </a>
                   </li>

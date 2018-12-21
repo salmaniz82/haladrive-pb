@@ -181,10 +181,10 @@
 		{
 			if($scope.lang == 'en')
 			{
-				return 'Arabic';
+				return 'EN';
 			}
 			else {
-				return 'English';
+				return 'AR';
 			}
 		};
 

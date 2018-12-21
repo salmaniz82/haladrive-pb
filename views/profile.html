@@ -6,14 +6,14 @@
             <div class="Row__root AccountPersonalInformation__form-names Row__direction-column-420" style="justify-content: space-between;">
                <div class="AccountPersonalInformation__form-split-input ModelFormInput__root">
                   <label class="ModelFormInput__label" for="ModelFormInput__firstName">
-                     <!-- react-text: 2519 -->First name<!-- /react-text -->
+                     Name EN
                   </label>
                   <input id="ModelFormInput__firstName" name="firstName" value="" placeholder="First name" class="ModelFormInput__input">
                   <div class="ModelFormInput__error ModelFormInput__firstName-error"></div>
                </div>
                <div class="AccountPersonalInformation__form-split-input ModelFormInput__root">
                   <label class="ModelFormInput__label" for="ModelFormInput__lastName">
-                     <!-- react-text: 2524 -->Last name<!-- /react-text -->
+                     Name AR
                   </label>
                   <input id="ModelFormInput__lastName" name="lastName" value="" placeholder="Last name" class="ModelFormInput__input">
                   <div class="ModelFormInput__error ModelFormInput__lastName-error"></div>
@@ -21,14 +21,14 @@
             </div>
             <div class="AccountInformation__form-input ModelFormInput__root">
                <label class="ModelFormInput__label" for="ModelFormInput__phone">
-                  <!-- react-text: 2529 -->Phone number<!-- /react-text -->
+                  Mobile 
                </label>
                <input type="tel" id="ModelFormInput__phone" name="phone" value="" placeholder="Phone number" class="ModelFormInput__input">
                <div class="ModelFormInput__error ModelFormInput__phone-error"></div>
             </div>
             <div class="AccountInformation__form-input ModelFormAddressInput__root ModelFormInput__root">
                <label class="ModelFormInput__label" for="ModelFormInput__address">
-                  <!-- react-text: 2534 -->Address<!-- /react-text -->
+                  Address
                </label>
                <input type="text" id="ModelFormInput__address" name="address" value="" placeholder="Street address" class="ModelFormInput__input" autocomplete="off">
                <div class="ModelFormInput__error ModelFormInput__address-error"></div>
@@ -47,7 +47,7 @@
          <div class="IdleEmailForm__root">
             <div class="IdleEmailForm__container-label">Email</div>
             <div>
-               <div class="IdleEmailForm__form">salmaniz.82@gmail.com</div>
+               <div class="IdleEmailForm__form">{{root.authUser().email}}</div>
             </div>
          </div>
          <div class="IdlePasswordForm__root">
@@ -57,7 +57,7 @@
                <a class="IdlePasswordForm__link" href="#">Change</a>
             </div>
          </div>
-         <!-- react-text: 2552 --><!-- /react-text -->
+         
       </div>
    </div>
 </div>

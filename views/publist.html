@@ -95,14 +95,15 @@
     </div>
 </div>
 
+<!--{{lang === "en" ? car.makerEN : car.makerAR}}-->
 
 <div class="CarBrowser__filters-selectors">
     <div class="CarBrowserFilterSelectorList__root CarBrowser__filters-section" ng-repeat="filters in apiGlobals">
-        <h4 class="CarBrowser__filters-section-header" ng-class="[isOpenList(filters.en)]" ng-click="filterHeader(filters.en)">{{filters.en}}</h4>
+        <h4 class="CarBrowser__filters-section-header" ng-class="[isOpenList(filters.en)]" ng-click="filterHeader(filters.en)">{{lang === "en" ? filters.en : filters.ar}}</h4>
         <ul class="CarBrowser__filters-list" ng-class="[filterHeaderClass(filters.en)]">
             <li class="CarBrowser__filters-list-item" ng-repeat="item in filters.list" ng-click="filterListSelc(item)" ng-class="[isFilterItemActive(item)]">
                 <a class="CarBrowser__filters-list-item-link CarBrowser__filters-list-item-link-available" href="#">
-                <span class="CarBrowser__filters-list-item-link-text">{{item.titleEN}}</span></a>
+                <span class="CarBrowser__filters-list-item-link-text">{{lang === "en" ? item.titleEN : item.titleAR }}</span></a>
             </li>           
         </ul>
     </div>
@@ -279,8 +280,15 @@
                     <div class="CarBrowserCarCard__body">
                         <div class="CarBrowserCarCard__row">
                             <div class="CarBrowserCarCard__name" itemprop="name" content="{{car.makerEN+' '+car.modelEN}}">
-                                <span class="CarBrowserCarCard__make" itemprop="manufacturer">{{car.makerEN}}</span>
-                                <span itemprop="model">{{car.modelEN}}</span></div>
+                                <span class="CarBrowserCarCard__make" itemprop="manufacturer">
+                                
+
+                                {{lang === "en" ? car.makerEN : car.makerAR}}
+                            </span>
+                                <span itemprop="model">
+                                
+                                {{lang === "en" ? car.modelEN : car.modelAR}}
+                            </span></div>
                         </div>
                         <div class="CarBrowserCarCard__row">
                             <div class="CarBrowserCarCard__year">{{car.year}}</div>
