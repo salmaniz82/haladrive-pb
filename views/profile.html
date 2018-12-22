@@ -50,14 +50,32 @@
                <div class="IdleEmailForm__form">{{root.authUser().email}}</div>
             </div>
          </div>
-         <div class="IdlePasswordForm__root">
+         <div class="IdlePasswordForm__root" ng-if="!vm.activateChangePassword">
             <div class="IdlePasswordForm__container-label">Password</div>
             <div>
                <div class="IdlePasswordForm__form">••••••••</div>
-               <a class="IdlePasswordForm__link" href="#">Change</a>
+               <a class="IdlePasswordForm__link" href="#" ng-click="vm.activateChangePassword = true">Change</a>
             </div>
          </div>
-         
+
+      <form ng-if="vm.activateChangePassword" class="ModelForm__root">
+      <div class="AccountInformation__form-input AccountInformation__form-current-password ModelFormInput__root">
+         <label class="ModelFormInput__label" for="ModelFormInput__currentPassword">Current password</label>
+         <input type="password" id="ModelFormInput__currentPassword" name="currentPassword" value="" placeholder="Current password" class="ModelFormInput__input" ng-model="vm.creds.oldPass">
+         <div class="ModelFormInput__error ModelFormInput__currentPassword-error"></div>
+      </div>
+      
+      <div class="AccountInformation__form-input AccountInformation__form-new-password ModelFormInput__root">
+         <label class="ModelFormInput__label" for="ModelFormInput__newPassword">
+            New password</label>
+         <input type="password" id="ModelFormInput__newPassword" name="newPassword" value="" placeholder="New password" class="ModelFormInput__input" ng-model="vm.creds.newPass">
+         <div class="ModelFormInput__error ModelFormInput__newPassword-error"></div>
+      </div>
+      <div class="AccountInformation__change-wrapper">
+         <button class="AccountInformation__change-cancel Button__root Button__color-red Button__size-medium Button__weight-normal Button__full-width Button__inverted-colors" type="button" ng-click="vm.activateChangePassword = false"><span class="Button__content">Cancel</span></button><button class="AccountInformation__change-save Button__root Button__color-red Button__size-medium Button__weight-normal Button__full-width" type="submit" ng-click="vm.attemptPasswordChange()">
+            <span class="Button__content">Change password</span></button></div>
+      </form>
+            
       </div>
    </div>
 </div>

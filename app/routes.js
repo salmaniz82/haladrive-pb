@@ -60,7 +60,8 @@
 
         .state('app.profile', {
             url: '/profile',
-            templateUrl: 'views/profile.html'
+            templateUrl: 'views/profile.html',
+            controller: 'profileCtrl as vm'
         })
 
 

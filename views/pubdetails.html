@@ -1,8 +1,6 @@
             <div id="page-container">
                 <div>
-                    <!-- react-empty: 83 -->
-
-    
+                    
                     <div ng-if="pub.bookingModal"  class="Modal__root CarProfilePage__manage-appointment-modal Modal__is-open Modal__layout-feature">
                         <div class="Modal__content Modal__content-full-page">
                         <div class="Modal__close" tabindex="-1" ng-click="vm.closeModal()"></div>
@@ -92,9 +90,11 @@
                             <div class="CarProfilePage__leader-nav-wrapper">
                                 <div class="CarProfilePage__leader-nav">
                                     <div class="CarProfilePage__leader-row CarProfilePage__leader-car-info">
-                                        <h1 class="CarProfilePage__leader-car-name"><span class="CarProfilePage__leader-car-year">{{vm.car.year}}</span><span class="CarProfilePage__leader-car-make-model-trim" title="Honda CR-V LX"><span class="CarProfilePage__leader-car-make">{{vm.car.makerEN}}</span>
+                                        <h1 class="CarProfilePage__leader-car-name">
+                                            <span class="CarProfilePage__leader-car-year">{{vm.car.year}}</span><span class="CarProfilePage__leader-car-make-model-trim">
+                                            <span class="CarProfilePage__leader-car-make">{{lang == 'en' ? vm.car.makerEN : vm.car.makerAR}}</span>
                                 <!-- react-text: 184 -->
-                                <!-- /react-text --><span class="CarProfilePage__leader-car-model-trim">{{vm.car.modelEN}}</span></span>
+                                <!-- /react-text --><span class="CarProfilePage__leader-car-model-trim">{{lang == 'en' ? vm.car.modelEN : vm.car.modelAR}}</span></span>
                             </h1>
                                         <div class="CarProfilePrice__root">
                                             <div class="CarProfilePrice__total-wrapper">
@@ -115,7 +115,7 @@
                                             <div class="CarProfile__buttons-container">
                                                 <div class="CarProfile__buttons-container-row">
                                                     <button class="CarProfileLeader__primary-button Button__root Button__color-red Button__size-big Button__weight-normal" type="button" ng-click="vm.lauchModal()">
-                                                        <span class="Button__content">Book selected Car</span></button>
+                                                        <span class="Button__content">{{lang == 'en' ? 'Book selected Car' : ' كتاب سيارة '}}</span></button>
                                                     <button class="CarProfilePageFavoriteButton__root CarProfile__button-favorite Button__root Button__color-red Button__size-big Button__weight-normal Button__inverted-colors" type="button"><span class="Button__content"><div class="CarProfilePageFavoriteButton__heart CarFavoriteHeart__root"><div class="CarFavoriteHeart__icon-container"><div class="CarFavoriteHeart__icon"></div></div></div></span></button>
                                                 </div>
                                             </div>
@@ -154,10 +154,10 @@
                                     </div>
                                     <div class="CarProfilePage__leader-row CarProfilePage__car-details">
                                         <ul class="CarProfileDetails__tabs">
-                                            <li class="CarProfileDetails__tab CarProfileDetails__tab--active">Overview</li>
-                                            <li class="CarProfileDetails__tab">Pricing</li>
-                                            <li class="CarProfileDetails__tab">Features</li>
-                                            <li class="CarProfileDetails__tab">Specs</li>
+                                            <li class="CarProfileDetails__tab CarProfileDetails__tab--active">{{lang == 'en' ? 'Overview' : 'نظرة عامة'}}</li>
+                                            <li class="CarProfileDetails__tab">{{lang == 'en' ? 'Pricing' : 'التسعير'}}</li>
+                                            <li class="CarProfileDetails__tab">{{lang == 'en' ? 'Features' : 'المميزات'}}</li>
+                                            <li class="CarProfileDetails__tab">{{lang == 'en' ? 'Specs' : 'تخصيص'}}</li>
                                         </ul>
                                         <section class="CarProfileDetails__section CarProfileDetails__overview CarProfileDetails__section--active">
                                             <div class="CarProfileDetails__overview-items">
@@ -172,7 +172,7 @@
                                                 <div class="CarProfileDetails__overview-item CarProfileDetails__overview-engine">
                                                     <div class="CarProfileDetails__overview-item-name">Engine</div>
                                                     <div class="CarProfileDetails__overview-item-name">                                                        
-                                                        {{vm.car.engineEN}}
+                                                        {{lang == 'en' ? vm.car.engineEN : vm.car.engineAR}}
                                                     </div>
                                                 </div>
                                                 <div class="CarProfileDetails__overview-item CarProfileDetails__overview-mpg">
@@ -347,7 +347,12 @@
                                             <div class="CarProfileDetails__packages"></div>
                                             <div class="CarProfileDetails__notables">
 
-                                                 <div class="CarProfileDetails__feature CarProfileDetails__feature-notable" ng-repeat="features in vm.optionCollection.en">{{features}}</div>   
+                                                 <div ng-if="lang == 'en'" class="CarProfileDetails__feature CarProfileDetails__feature-notable" ng-repeat="features in vm.optionCollection.en">{{features}}</div>
+
+
+                                                 <div ng-if="lang == 'ar'" class="CarProfileDetails__feature CarProfileDetails__feature-notable" ng-repeat="features in vm.optionCollection.ar">{{features}}</div>
+
+
                                             </div>
                                         </section>
                                         <section class="CarProfileDetails__section CarProfileDetails__specs">
@@ -363,11 +368,11 @@
                                                 <div class="HorizontalRule__root CarProfileDetails__specs-hr"></div>
                                                 <div class="CarProfileDetails__specs-item">
                                                     <div class="CarProfileDetails__specs-item-name">Exterior</div>
-                                                    <div class="CarProfileDetails__specs-item-value">{{vm.car.exteriorEN}}</div>
+                                                    <div class="CarProfileDetails__specs-item-value">{{lang == 'en' ? vm.car.exteriorEN : vm.car.exteriorAR}}</div>
                                                 </div>
                                                 <div class="CarProfileDetails__specs-item">
                                                     <div class="CarProfileDetails__specs-item-name">Interior</div>
-                                                    <div class="CarProfileDetails__specs-item-value">{{vm.car.interiorEN}}</div>
+                                                    <div class="CarProfileDetails__specs-item-value">{{lang == 'en' ? vm.car.interiorEN : vm.car.interiorAR}}</div>
                                                 </div>
                                                 <div class="HorizontalRule__root CarProfileDetails__specs-hr"></div>
                                                 <div class="CarProfileDetails__specs-item">
@@ -385,7 +390,7 @@
                                                 <div class="HorizontalRule__root CarProfileDetails__specs-hr"></div>
                                                 <div class="CarProfileDetails__specs-item">
                                                     <div class="CarProfileDetails__specs-item-name">Fuel type</div>
-                                                    <div class="CarProfileDetails__specs-item-value">{{vm.car.fuelEN}}</div>
+                                                    <div class="CarProfileDetails__specs-item-value">{{lang == 'en' ? vm.car.fuelEN : vm.car.fuelAR}}</div>
                                                 </div>
                                                 <div class="CarProfileDetails__specs-item">
                                                     <div class="CarProfileDetails__specs-item-name">Fuel tank capacity</div>
