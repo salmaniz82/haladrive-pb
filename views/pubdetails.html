@@ -24,7 +24,7 @@
 
                                 <div class="LocationAndTimeForm__date-time-column"><span class="black shift-select-container">
 
-                                <select chosen placeholder-text-single="'Start Time'" disable-search="true" id="filter-select-1" style="width:100%" ng-model="vm.bd.sTime">
+                                <select chosen placeholder-text-single="'Start Time'" disable-search="false" id="filter-select-1" style="width:100%" ng-model="vm.bd.sTime">
                                     <option value=""></option>
                                     <option ng-repeat="timerange in vm.timerangeArr" ng-value="timerange">{{timerange}}</option>
                                 </select>
@@ -49,7 +49,7 @@
 
                                 <div class="LocationAndTimeForm__date-time-column"><span class="black shift-select-container">
 
-                                <select chosen placeholder-text-single="'Start Time'" disable-search="true" id="filter-select-1" style="width:100%" ng-model="vm.bd.eTime">
+                                <select chosen placeholder-text-single="'Start Time'" disable-search="false" id="filter-select-1" style="width:100%" ng-model="vm.bd.eTime">
                                     <option value=""></option>
                                     <option ng-repeat="timerange in vm.timerangeArr" ng-value="timerange">{{timerange}}</option>
                                 </select>
