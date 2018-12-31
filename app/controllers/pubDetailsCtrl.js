@@ -77,8 +77,13 @@
 
             }, function(response) {
 
-
-                console.log(response.data.message);
+                      var notify = {
+                        type: 'error',
+                        title: 'Booking cannot be created',
+                        content: response.data.message,
+                        timeout: 3000 //time in ms
+                    };
+                    $scope.$emit('notify', notify);
 
             });
             
