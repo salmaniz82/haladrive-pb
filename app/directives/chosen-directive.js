@@ -1,5 +1,8 @@
 angular.module('haladrive').directive('chosen', function(){
 
+
+
+
     var directive = {};
 
     directive.restrict = 'A';
@@ -24,5 +27,8 @@ angular.module('haladrive').directive('chosen', function(){
      //   element.chosen();
     };
 
-    return directive;
+    // return directive;
+
+
+
 });

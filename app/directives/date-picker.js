@@ -16,7 +16,9 @@
               };
               var options = {
                 dateFormat: "yy-mm-dd",
-                minDate: new Date(),
+                changeMonth: true,
+                changeYear: true,
+
                 onSelect: function (dateText) {
                   updateModel(dateText);
                 }
