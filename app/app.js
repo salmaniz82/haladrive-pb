@@ -29,8 +29,6 @@ angular.module('haladrive').run(['$rootScope','$state', function ($rootScope, $s
 
       */
 
-        
-
     });
 
 
